@@ -36,7 +36,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   #->Prelang
-  GA.tracker = ""
+  GA.tracker = "UA-75492636-1"
 
 end
 
