@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'landings#index'
 
-  get 'test' => "test#index"
+  get 'test/kenpom' => "test#kenpom"
+  get 'test/bracketmatrix' => "test#bracketmatrix"
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

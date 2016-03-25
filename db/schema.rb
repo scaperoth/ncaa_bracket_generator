@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323141817) do
+ActiveRecord::Schema.define(version: 20160324184010) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20160323141817) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
+  create_table "bmatrix_teams", force: true do |t|
+    t.string   "name"
+    t.integer  "rank"
+    t.string   "conf"
+    t.decimal  "avg_seed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bmatrix_teams", ["name"], name: "index_bmatrix_teams_on_name"
+
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
     t.integer  "attempts",   default: 0, null: false
@@ -61,6 +72,26 @@ ActiveRecord::Schema.define(version: 20160323141817) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+
+  create_table "kenpom_teams", force: true do |t|
+    t.string   "name"
+    t.integer  "rank"
+    t.string   "conf"
+    t.string   "wl"
+    t.decimal  "pyth"
+    t.decimal  "adjo"
+    t.decimal  "adjd"
+    t.decimal  "adjt"
+    t.decimal  "luck"
+    t.decimal  "pyth_sched"
+    t.decimal  "oppo_sched"
+    t.decimal  "oppd_sched"
+    t.decimal  "pyth_ncsos"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "kenpom_teams", ["name"], name: "index_kenpom_teams_on_name"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
