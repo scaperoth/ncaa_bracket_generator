@@ -36,5 +36,5 @@ end
 
 tournament= ActiveSupport::JSON.decode(File.read('db/seed_files/tournament.json'))
 tournament.each do |e|
-  Team.create(:year=>e['year'])
+  Tournament.create(:year=>e['year'])
 end
