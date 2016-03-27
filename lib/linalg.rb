@@ -1,6 +1,13 @@
+## 
+# @author Matt Scaperoth
+# @email scaperoth@gmail.com
+# @sources: https://rosettacode.org/wiki/Reduced_row_echelon_form#Ruby
+# @description: linear algebra library to compute matrix operations
+
 class linAlg
   :A, :x, :b, :Arref
-
+  
+  #solves an Ax=b type equation
   def solve(A, b)
     @A = A
     @b = b
@@ -8,7 +15,7 @@ class linAlg
 
     @Arref = reduced_row_echelon_form(Aplus)
 
-    @x =
+    @x = computeX(@Arref)
 
       end
 

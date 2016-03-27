@@ -5,9 +5,9 @@ class CreateBmatrixTeams < ActiveRecord::Migration
       t.string :name
       t.string :conf
       t.decimal :avg_seed
-
+      t.has_one :team_name
       t.timestamps
     end
-    add_index :bmatrix_teams, :rank
+    add_index :bmatrix_teams, :id
   end
 end

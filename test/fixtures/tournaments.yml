@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: 2016-03-26
+  has_many: 
+
+two:
+  year: 2016-03-26
+  has_many: 

@@ -1,3 +1,3 @@
 class KenpomTeam < ActiveRecord::Base
-	self.primary_key = 'name'
+	has_one :team
 end

@@ -1,6 +1,6 @@
 class LandingsController < ApplicationController
   def index
     
-    @crawler = Crawler.new("http://localhost:3000/test") 
+    @crawler = Crawler.new
   end
 end

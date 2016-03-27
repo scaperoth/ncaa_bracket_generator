@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324184010) do
+ActiveRecord::Schema.define(version: 20160326221738) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20160324184010) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
   create_table "bmatrix_teams", force: true do |t|
-    t.string   "name"
     t.integer  "rank"
+    t.string   "name"
     t.string   "conf"
     t.decimal  "avg_seed"
     t.datetime "created_at"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 20160324184010) do
   end
 
   add_index "bmatrix_teams", ["name"], name: "index_bmatrix_teams_on_name"
+
+  create_table "conferences", force: true do |t|
+    t.string   "name"
+    t.string   "kp_name"
+    t.string   "bmat_name"
+    t.string   "short_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -74,8 +83,8 @@ ActiveRecord::Schema.define(version: 20160324184010) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
   create_table "kenpom_teams", force: true do |t|
-    t.string   "name"
     t.integer  "rank"
+    t.string   "name"
     t.string   "conf"
     t.string   "wl"
     t.decimal  "pyth"
@@ -92,6 +101,32 @@ ActiveRecord::Schema.define(version: 20160324184010) do
   end
 
   add_index "kenpom_teams", ["name"], name: "index_kenpom_teams_on_name"
+
+  create_table "teams", force: true do |t|
+    t.string   "name"
+    t.integer  "kenpom_team_id"
+    t.integer  "bmatrix_team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teams", ["name"], name: "index_teams_on_name"
+
+  create_table "tournament_teams", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "tournament_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tournament_teams", ["team_id"], name: "index_tournament_teams_on_team_id"
+  add_index "tournament_teams", ["tournament_id"], name: "index_tournament_teams_on_tournament_id"
+
+  create_table "tournaments", force: true do |t|
+    t.date     "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

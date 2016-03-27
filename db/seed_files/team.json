@@ -1,0 +1,340 @@
+[
+	{
+		"name": "Arizona",
+		"kp_name":"Arizona",
+		"bmat_name":"Arizona"
+	},
+	{
+		"name": "Arkansas Little Rock",
+		"kp_name":"Arkansas Little Rock",
+		"bmat_name":"Arkansas-Little Rock"
+	},
+	{
+		"name": "Austin Peay",
+		"kp_name":"Austin Peay",
+		"bmat_name":"Austin Peay"
+	},
+	{
+		"name": "Baylor",
+		"kp_name":"Baylor",
+		"bmat_name":"Baylor"
+	},
+	{
+		"name": "Buffalo",
+		"kp_name":"Buffalo",
+		"bmat_name":"Buffalo"
+	},
+	{
+		"name": "Butler",
+		"kp_name":"Butler",
+		"bmat_name":"Butler"
+	},
+	{
+		"name": "California",
+		"kp_name":"California",
+		"bmat_name":"California"
+	},
+	{
+		"name": "Chattanooga",
+		"kp_name":"Chattanooga",
+		"bmat_name":"Chattanooga"
+	},
+	{
+		"name": "Cincinnati",
+		"kp_name":"Cincinnati",
+		"bmat_name":"Cincinnati"
+	},
+	{
+		"name": "Colorado",
+		"kp_name":"Colorado",
+		"bmat_name":"Colorado"
+	},
+	{
+		"name": "Connecticut",
+		"kp_name":"Connecticut",
+		"bmat_name":"Connecticut"
+	},
+	{
+		"name": "Cal St. Bakersfield",
+		"kp_name":"Cal St. Bakersfield",
+		"bmat_name":"CSU Bakersfield"
+	},
+	{
+		"name": "Dayton",
+		"kp_name":"Dayton",
+		"bmat_name":"Dayton"
+	},
+	{
+		"name": "Duke",
+		"kp_name":"Duke",
+		"bmat_name":"Duke"
+	},
+	{
+		"name": "Fairleigh Dickinson",
+		"kp_name":"Fairleigh Dickinson",
+		"bmat_name":"Fairleigh Dickinson"
+	},
+	{
+		"name": "Florida Gulf Coast",
+		"kp_name":"Florida Gulf Coast",
+		"bmat_name":"Florida Gulf Coast"
+	},
+	{
+		"name": "Fresno St.",
+		"kp_name":"Fresno St.",
+		"bmat_name":"Fresno State"
+	},
+	{
+		"name": "Gonzaga",
+		"kp_name":"Gonzaga",
+		"bmat_name":"Gonzaga"
+	},
+	{
+		"name": "Hampton",
+		"kp_name":"Hampton",
+		"bmat_name":"Hampton"
+	},
+	{
+		"name": "Hawaii",
+		"kp_name":"Hawaii",
+		"bmat_name":"Hawaii"
+	},
+	{
+		"name": "Holy Cross",
+		"kp_name":"Holy Cross",
+		"bmat_name":"Holy Cross"
+	},
+	{
+		"name": "Indiana",
+		"kp_name":"Indiana",
+		"bmat_name":"Indiana"
+	},
+	{
+		"name": "Iona",
+		"kp_name":"Iona",
+		"bmat_name":"Iona"
+	},
+	{
+		"name": "Iowa",
+		"kp_name":"Iowa",
+		"bmat_name":"Iowa"
+	},
+	{
+		"name": "Iowa St.",
+		"kp_name":"Iowa St.",
+		"bmat_name":"Iowa State"
+	},
+	{
+		"name": "Kansas",
+		"kp_name":"Kansas",
+		"bmat_name":"Kansas"
+	},
+	{
+		"name": "Kentucky",
+		"kp_name":"Kentucky",
+		"bmat_name":"Kentucky"
+	},
+	{
+		"name": "Maryland",
+		"kp_name":"Maryland",
+		"bmat_name":"Maryland"
+	},
+	{
+		"name": "Miami",
+		"kp_name":"Miami FL",
+		"bmat_name":"Miami (FLA.)"
+	},
+	{
+		"name": "Michigan",
+		"kp_name":"Michigan",
+		"bmat_name":"Michigan"
+	},
+	{
+		"name": "Michigan St.",
+		"kp_name":"Michigan St.",
+		"bmat_name":"Michigan State"
+	},
+	{
+		"name": "Middle Tennessee",
+		"kp_name":"Middle Tennessee",
+		"bmat_name":"Middle Tennessee"
+	},
+	{
+		"name": "UNC Asheville",
+		"kp_name":"UNC Asheville",
+		"bmat_name":"NC-Asheville"
+	},
+	{
+		"name": "UNC Wilmington",
+		"kp_name":"UNC Wilmington",
+		"bmat_name":"NC-Wilmington"
+	},
+	{
+		"name": "North Carolina",
+		"kp_name":"North Carolina",
+		"bmat_name":"North Carolina"
+	},
+	{
+		"name": "Northern Iowa",
+		"kp_name":"Northern Iowa",
+		"bmat_name":"Northern Iowa"
+	},
+	{
+		"name": "Notre Dame",
+		"kp_name":"Notre Dame",
+		"bmat_name":"Notre Dame"
+	},
+	{
+		"name": "Oklahoma",
+		"kp_name":"Oklahoma",
+		"bmat_name":"Oklahoma"
+	},
+	{
+		"name": "Oregon",
+		"kp_name":"Oregon",
+		"bmat_name":"Oregon"
+	},
+	{
+		"name": "Oregon St.",
+		"kp_name":"Oregon St.",
+		"bmat_name":"Oregon State"
+	},
+	{
+		"name": "Pittsburgh",
+		"kp_name":"Pittsburgh",
+		"bmat_name":"Pittsburgh"
+	},
+	{
+		"name": "Providence",
+		"kp_name":"Providence",
+		"bmat_name":"Providence"
+	},
+	{
+		"name": "Purdue",
+		"kp_name":"Purdue",
+		"bmat_name":"Purdue"
+	},
+	{
+		"name": "Seton Hall",
+		"kp_name":"Seton Hall",
+		"bmat_name":"Seton Hall"
+	},
+	{
+		"name": "South Dakota",
+		"kp_name":"South Dakota",
+		"bmat_name":"South Dakota State"
+	},
+	{
+		"name": "Southern",
+		"kp_name":"Southern",
+		"bmat_name":"Southern"
+	},
+	{
+		"name": "Saint Joseph's",
+		"kp_name":"Saint Joseph's",
+		"bmat_name":"St. Joseph's"
+	},
+	{
+		"name": "Stephen F. Austin",
+		"kp_name":"Stephen F. Austin",
+		"bmat_name":"Stephen F. Austin"
+	},
+	{
+		"name": "Stony Brook",
+		"kp_name":"Stony Brook",
+		"bmat_name":"Stony Brook"
+	},
+	{
+		"name": "Syracuse",
+		"kp_name":"Syracuse",
+		"bmat_name":"Syracuse"
+	},
+	{
+		"name": "Temple",
+		"kp_name":"Temple",
+		"bmat_name":"Temple"
+	},
+	{
+		"name": "Texas",
+		"kp_name":"Texas",
+		"bmat_name":"Texas"
+	},
+	{
+		"name": "Texas A&M",
+		"kp_name":"Texas A&M",
+		"bmat_name":"Texas A&M"
+	},
+	{
+		"name": "Texas Tech",
+		"kp_name":"Texas Tech",
+		"bmat_name":"Texas Tech"
+	},
+	{
+		"name": "Tulsa",
+		"kp_name":"Tulsa",
+		"bmat_name":"Tulsa"
+	},
+	{
+		"name": "USC",
+		"kp_name":"USC",
+		"bmat_name":"USC"
+	},
+	{
+		"name": "Utah",
+		"kp_name":"Utah",
+		"bmat_name":"Utah"
+	},
+	{
+		"name": "Vanderbilt",
+		"kp_name":"Vanderbilt",
+		"bmat_name":"Vanderbilt"
+	},
+	{
+		"name": "Villanova",
+		"kp_name":"Villanova",
+		"bmat_name":"Villanova"
+	},
+	{
+		"name": "Virginia",
+		"kp_name":"Virginia",
+		"bmat_name":"Virginia"
+	},
+	{
+		"bmat_name":"Virginia Commonwealth"
+	},
+	{
+		"name": "Weber St.",
+		"kp_name":"Weber St.",
+		"bmat_name":"Weber State"
+	},
+	{
+		"name": "West Virginia",
+		"kp_name":"West Virginia",
+		"bmat_name":"West Virginia"
+	},
+	{
+		"name": "Wichita St.",
+		"kp_name":"Wichita St.",
+		"bmat_name":"Wichita State"
+	},
+	{
+		"name": "Wisconsin",
+		"kp_name":"Wisconsin",
+		"bmat_name":"Wisconsin"
+	},
+	{
+		"name": "Green Bay",
+		"kp_name":"Green Bay",
+		"bmat_name":"Wisconsin-Green Bay"
+	},
+	{
+		"name": "Xavier",
+		"kp_name":"Xavier",
+		"bmat_name":"Xavier"
+	},
+	{
+		"name": "Yale",
+		"kp_name":"Yale",
+		"bmat_name":"Yale"
+	}
+]

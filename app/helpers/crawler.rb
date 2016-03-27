@@ -1,83 +1,69 @@
+##
+# @author Matt Scaperoth
+# @email scaperoth@gmail.com
+# @description This class crawls sites and parses the html data
+
 require 'nokogiri'
 require 'open-uri'
 
 class Crawler
-  attr_accessor :url, :kp_team_data, :kp_column_names, :bmat_team_data, :bmat_column_names, :bmat_num_columns
-  def initialize(url)
-    @url = url
+  attr_accessor :kp_url, :kp_team_data, :kp_column_names, :bmat_url, :bmat_team_data, :bmat_column_names, :bmat_num_columns
+  def initialize()
+    @kp_url = "http://kenpom.com"
+    @bmat_url = "http://matrixbracket.com"
     @kp_team_data = Hash.new
     @kp_column_names = Hash.new
     @bmat_team_data = Hash.new
     @bmat_column_names = Hash.new
-    kenPomCrawler
-    bracketMatrixCrawler
-
   end
-
+  
+  #crawls the bracket matrix website and parses the html data into a 2D hash
   def bracketMatrixCrawler
     curr_row = 0
     curr_column = 0
-    index = 0
+    rank = 0
     num_columns = 0
     num_rows = 0
 
     directory = "#{Rails.root}/log/"
 
-
-
     db_columns = ["rank", "name", "conf", "avg_seed"]
-
+    
     doc = Nokogiri::HTML(File.open("#{Rails.root}/app/views/test/bracketmatrix.html.erb"))
 
-    doc.css('table tr').each do |link|
-      num_rows+=1
-    end
 
-    doc.css('table tr td').each do |link|
-      num_columns+=1
-    end
-
-    num_columns = num_columns/num_rows - 1
-    @bmat_num_columns = num_columns
+    #num_columns = (num_columns/num_rows) + 1
+    #@bmat_num_columns = num_columns 
     File.open(File.join(directory, 'debug.log'), 'w') do |f|
     end
 
-    doc.css('table tr td').each do |link|
-      if link.content.nil? || link.content.empty? || link.content.blank?
-        next
-      end
-      #check if we're on a new column
-      if curr_column > num_columns
-        curr_column = 0
+    doc.css('table tr').each do |row|
+      if curr_row > 7 and curr_row < 76
+        row.css('td').each do |cell|
+          
+          if curr_column < db_columns.length
+            
+            #start a new hash at each new row
+            if(curr_column == 0)
+              @bmat_team_data[rank] = Hash.new
+            end#end if   cumn<db columns    
+            
+            @bmat_team_data[rank][db_columns[curr_column]] = cell.content 
+            
+          end #end if curr_column < db_column
+          
+          curr_column+= 1
+        end #end each
+        
+        rank += 1
+      end #end if row > 8
+      
         curr_row += 1
-        index += 1
-      end
-
-      File.open(File.join(directory, 'debug.log'), 'a') do |f|
-        f.puts link.content
-      end
-      #skip everything that's too far down
-      if curr_row < 9 || curr_row > 63
-        next
-      end
-
-      if curr_column > db_columns.length
-        curr_column += 1
-        next
-      end
-
-
-      if(curr_column == 0)
-        @bmat_team_data[index] = Hash.new
-      end
-
-      @bmat_team_data[index][db_columns[curr_column]] = link.content
-
-      curr_column += 1
-
+        curr_column = 0
     end
   end
-
+  
+  #crawls the kenpom website and parses the html data into a 2D hash
   def kenPomCrawler
     columns = 0;
     append = ""

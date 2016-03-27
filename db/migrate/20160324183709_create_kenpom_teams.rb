@@ -6,17 +6,18 @@ class CreateKenpomTeams < ActiveRecord::Migration
       t.string :conf
       t.string :wl
       t.decimal :pyth
-      t.decimal :adjO
-      t.decimal :adjD
-      t.decimal :adjT
-      t.decimal :Luck
+      t.decimal :adjo
+      t.decimal :adjd
+      t.decimal :adjt
+      t.decimal :luck
       t.decimal :pyth_sched
-      t.decimal :oppO_sched
-      t.decimal :oppD_sched
+      t.decimal :oppo_sched
+      t.decimal :oppd_sched
       t.decimal :pyth_ncsos
+      t.has_one :team_name
 
       t.timestamps
     end
-    add_index :kenpom_teams, :rank
+    add_index :kenpom_teams, :id
   end
 end
