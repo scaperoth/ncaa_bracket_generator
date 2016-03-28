@@ -29,9 +29,10 @@ end
 
 team = ActiveSupport::JSON.decode(File.read('db/seed_files/team.json'))
 team.each do |e|
-  kp = KenpomTeam.find_by name: e['kp_name']
-  bmat = BmatrixTeam.find_by name: e['bmat_name']
-  Team.create(:name=>e['name'], :kenpom_team=>kp, :bmatrix_team=>bmat)
+  kp = KenpomTeam.find_by name: (e['kp_name'].downcase)
+  bmat = BmatrixTeam.find_by name: (e['bmat_name'].downcase)
+  Team.create(:name=>e['name'].downcase, :kenpom_team=>kp, :bmatrix_team=>bmat)
+  
 end
 
 tournament= ActiveSupport::JSON.decode(File.read('db/seed_files/tournament.json'))

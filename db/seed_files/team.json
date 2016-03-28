@@ -300,7 +300,9 @@
 		"bmat_name":"Virginia"
 	},
 	{
-		"bmat_name":"Virginia Commonwealth"
+		"name": "VCU",
+		"kp_name": "VCU",
+		"bmat_name": "Virginia Commonwealth"
 	},
 	{
 		"name": "Weber St.",
