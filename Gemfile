@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
@@ -57,6 +58,7 @@ gem 'bootstrap-sass', '3.3.5'
 gem 'bootstrap-sass-extras'
 gem 'tzinfo-data'
 gem 'validates_formatting_of'
+gem 'rails_12factor'
 
 group :development do
   gem 'better_errors'
