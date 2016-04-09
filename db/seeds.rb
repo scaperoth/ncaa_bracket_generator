@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+AdminUser.create!(email: ENV["NCAA_ADMIN_USER"], password: ENV["NCAA_ADMIN_PASSWORD"], password_confirmation: ENV["NCAA_ADMIN_PASSWORD"])
 
 #create a new crawler object
 @crawler = Crawler.new
@@ -39,27 +39,25 @@ conference.each do |e|
   Conference.create(:name=>e['name'], :kp_name=>e['kp_name'], :bmat_name=>e['bmat_name'])
 end
 
-tournament_team_id = Hash.new
+tournament_teams = Array.new
 
 team = ActiveSupport::JSON.decode(File.read('db/seed_files/team.json'))
 team.each do |e|
   kp = KenpomTeam.find_by name: (e['kp_name'].downcase)
   bmat = BmatrixTeam.find_by name: (e['bmat_name'].downcase)
   new_team = Team.create(:name=>e['name'].downcase, :kenpom_team=>kp, :bmatrix_team=>bmat)
-  tournament_team_id[new_team.id]
-  puts tournament_team_id
+  tournament_teams.push(new_team)
 end
 
-tournament_id = Hash.new
+tournaments = Array.new
 
 tournament= ActiveSupport::JSON.decode(File.read('db/seed_files/tournament.json'))
 tournament.each do |e|
-  tournament = Tournament.create(:year=>e['year'])
-  tournament_id[tournament.id]
+  tournament = Tournament.create(:name=>e['name'], :year=>e['year'])
+  tournaments.push(tournament)
 end
 
-tournament_team_id.each do |team_id|
-  tt = TournamentTeam.create(:tournament => tournament_id[0], :team=>team_id)
-  puts tt
+tournament_teams.each do |tournament_team|
+  tt = TournamentTeam.create(:tournament => tournaments[0], :team=>tournament_team)
 end
 

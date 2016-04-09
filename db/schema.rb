@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20160326221738) do
   add_index "tournament_teams", ["tournament_id"], name: "index_tournament_teams_on_tournament_id"
 
   create_table "tournaments", force: true do |t|
+    t.string   "name"
     t.date     "year"
     t.datetime "created_at"
     t.datetime "updated_at"
