@@ -1,5 +1,5 @@
-ActiveAdmin.register KenpomStats do
-  permit_params :team_id, :tournament_id, :rank, :wl, :pyth,:adjo, :adjd , :adjt, :luck, :pyth_sched, :oppo_sched, :oppd_sched, :pyth_ncsos
+ActiveAdmin.register BmatrixStat do
+  permit_params :team_id, :tournament_id, :rank, :avg_seed
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
