@@ -19,12 +19,12 @@ class Crawler
   
   def get_year_url(year, which_url = "kenpom")
     
-    current_year = Time.now.year
+    current_year = Time.now.year.to_s
     
     kenpom_url = "http://kenpom.com/index.php?y=#{year}"
     bracket_matrix_url = "http://bracketmatrix.com/matrix_#{year}.html"
     
-    if(current_year = year)
+    if(current_year == year)
       kenpom_url = "http://kenpom.com/"
       bracket_matrix_url = "http://bracketmatrix.com/"
     end
@@ -63,7 +63,7 @@ class Crawler
     end
 
     doc.css('table tr').each do |row|
-      if curr_row > 7 and curr_row < 76
+      if curr_row > 7 and curr_row < 75
         row.css('td').each do |cell|
           
           if curr_column < db_columns.length

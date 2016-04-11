@@ -69,5 +69,14 @@ Tournament.find_each do |tournament|
       tournament_team = Team.find_by bmatrix_team: bmat_team
       tt = TournamentTeam.create(:tournament_id => tournament.id, :team_id=>tournament_team.id)
     end
-  
+end
+
+rounds = ActiveSupport::JSON.decode(File.read('db/seed_files/rounds.json'))
+rounds.each do |round|
+  Round.create(:number => round["number"], :name => round["name"])
+end
+
+regions = ActiveSupport::JSON.decode(File.read('db/seed_files/regions.json'))
+regions.each do |region|
+  Region.create(:name => region["region"])
 end

@@ -377,7 +377,7 @@
 	{
 	 	"name" : "East Tennessee St.",
 	 	"kp_name" : "East Tennessee St.",
-	 	"bmat_name" : "East Tennessee State"
+	 	"bmat_name" : "East Tennessee St."
 	},
 	{
 	 	"name" : "Eastern Illinois",
@@ -717,12 +717,12 @@
 	{
 	 	"name" : "LIU Brooklyn",
 	 	"kp_name" : "LIU Brooklyn",
-	 	"bmat_name" : "LIU-Brooklyn"
+	 	"bmat_name" : "LIU Brooklyn"
 	},
 	{
 	 	"name" : "Long Beach St.",
 	 	"kp_name" : "Long Beach St.",
-	 	"bmat_name" : "Long Beach State"
+	 	"bmat_name" : "Long Beach St."
 	},
 	{
 	 	"name" : "Longwood",
@@ -732,7 +732,7 @@
 	{
 	 	"name" : "Louisiana Lafayette",
 	 	"kp_name" : "Louisiana Lafayette",
-	 	"bmat_name" : "Louisiana-Lafayette"
+	 	"bmat_name" : "Louisiana Lafayette"
 	},
 	{
 	 	"name" : "Louisiana Monroe",
@@ -762,7 +762,7 @@
 	{
 	 	"name" : "Loyola MD",
 	 	"kp_name" : "Loyola MD",
-	 	"bmat_name" : "Loyola-Maryland"
+	 	"bmat_name" : "Loyola MD"
 	},
 	{
 	 	"name" : "LSU",
@@ -852,7 +852,7 @@
 	{
 	 	"name" : "Milwaukee",
 	 	"kp_name" : "Milwaukee",
-	 	"bmat_name" : "Wisconsin-Milwaukee"
+	 	"bmat_name" : "Milwaukee"
 	},
 	{
 	 	"name" : "Minnesota",
@@ -872,7 +872,7 @@
 	{
 	 	"name" : "Mississippi Valley St.",
 	 	"kp_name" : "Mississippi Valley St.",
-	 	"bmat_name" : "Mississippi Valley State"
+	 	"bmat_name" : "Mississippi Valley St."
 	},
 	{
 	 	"name" : "Missouri",
@@ -925,6 +925,46 @@
 	 	"bmat_name" : "Navy"
 	},
 	{
+	 	"name" : "NCSOS",
+	 	"kp_name" : "NCSOS",
+	 	"bmat_name" : "NCSOS"
+	},
+	{
+	 	"name" : "NCSOS",
+	 	"kp_name" : "NCSOS",
+	 	"bmat_name" : "NCSOS"
+	},
+	{
+	 	"name" : "NCSOS",
+	 	"kp_name" : "NCSOS",
+	 	"bmat_name" : "NCSOS"
+	},
+	{
+	 	"name" : "NCSOS",
+	 	"kp_name" : "NCSOS",
+	 	"bmat_name" : "NCSOS"
+	},
+	{
+	 	"name" : "NCSOS",
+	 	"kp_name" : "NCSOS",
+	 	"bmat_name" : "NCSOS"
+	},
+	{
+	 	"name" : "NCSOS",
+	 	"kp_name" : "NCSOS",
+	 	"bmat_name" : "NCSOS"
+	},
+	{
+	 	"name" : "NCSOS",
+	 	"kp_name" : "NCSOS",
+	 	"bmat_name" : "NCSOS"
+	},
+	{
+	 	"name" : "NCSOS",
+	 	"kp_name" : "NCSOS",
+	 	"bmat_name" : "NCSOS"
+	},
+	{
 	 	"name" : "Nebraska",
 	 	"kp_name" : "Nebraska",
 	 	"bmat_name" : "Nebraska"
@@ -952,7 +992,7 @@
 	{
 	 	"name" : "New Mexico St.",
 	 	"kp_name" : "New Mexico St.",
-	 	"bmat_name" : "New Mexico State"
+	 	"bmat_name" : "New Mexico St."
 	},
 	{
 	 	"name" : "New Orleans",
@@ -997,7 +1037,7 @@
 	{
 	 	"name" : "North Carolina St.",
 	 	"kp_name" : "North Carolina St.",
-	 	"bmat_name" : "North Carolina State"
+	 	"bmat_name" : "North Carolina St."
 	},
 	{
 	 	"name" : "North Dakota",
@@ -1007,7 +1047,7 @@
 	{
 	 	"name" : "North Dakota St.",
 	 	"kp_name" : "North Dakota St.",
-	 	"bmat_name" : "North Dakota State"
+	 	"bmat_name" : "North Dakota St."
 	},
 	{
 	 	"name" : "North Florida",
@@ -1227,12 +1267,12 @@
 	{
 	 	"name" : "Saint Louis",
 	 	"kp_name" : "Saint Louis",
-	 	"bmat_name" : "Saint Louis"
+	 	"bmat_name" : "St. Louis"
 	},
 	{
 	 	"name" : "Saint Mary's",
 	 	"kp_name" : "Saint Mary's",
-	 	"bmat_name" : "St. Mary's (ca)"
+	 	"bmat_name" : "Saint Mary's"
 	},
 	{
 	 	"name" : "Saint Peter's",
@@ -1242,7 +1282,7 @@
 	{
 	 	"name" : "Sam Houston St.",
 	 	"kp_name" : "Sam Houston St.",
-	 	"bmat_name" : "Sam Houston State"
+	 	"bmat_name" : "Sam Houston St."
 	},
 	{
 	 	"name" : "Samford",
@@ -1257,7 +1297,7 @@
 	{
 	 	"name" : "San Diego St.",
 	 	"kp_name" : "San Diego St.",
-	 	"bmat_name" : "San Diego State"
+	 	"bmat_name" : "San Diego St."
 	},
 	{
 	 	"name" : "San Francisco",
@@ -1267,7 +1307,7 @@
 	{
 	 	"name" : "San Jose St.",
 	 	"kp_name" : "San Jose St.",
-	 	"bmat_name" : "San Jose State"
+	 	"bmat_name" : "San Jose St."
 	},
 	{
 	 	"name" : "Santa Clara",
@@ -1302,7 +1342,7 @@
 	{
 	 	"name" : "SMU",
 	 	"kp_name" : "SMU",
-	 	"bmat_name" : "Southern Methodist"
+	 	"bmat_name" : "SMU"
 	},
 	{
 	 	"name" : "South Alabama",
@@ -1317,7 +1357,7 @@
 	{
 	 	"name" : "South Carolina St.",
 	 	"kp_name" : "South Carolina St.",
-	 	"bmat_name" : "South Carolina State"
+	 	"bmat_name" : "South Carolina St."
 	},
 	{
 	 	"name" : "South Dakota",
@@ -1337,7 +1377,7 @@
 	{
 	 	"name" : "Southeast Missouri St.",
 	 	"kp_name" : "Southeast Missouri St.",
-	 	"bmat_name" : "Southeast Missouri State"
+	 	"bmat_name" : "Southeast Missouri St."
 	},
 	{
 	 	"name" : "Southeastern Louisiana",
@@ -1413,6 +1453,46 @@
 	 	"name" : "TCU",
 	 	"kp_name" : "TCU",
 	 	"bmat_name" : "TCU"
+	},
+	{
+	 	"name" : "Team",
+	 	"kp_name" : "Team",
+	 	"bmat_name" : "Team"
+	},
+	{
+	 	"name" : "Team",
+	 	"kp_name" : "Team",
+	 	"bmat_name" : "Team"
+	},
+	{
+	 	"name" : "Team",
+	 	"kp_name" : "Team",
+	 	"bmat_name" : "Team"
+	},
+	{
+	 	"name" : "Team",
+	 	"kp_name" : "Team",
+	 	"bmat_name" : "Team"
+	},
+	{
+	 	"name" : "Team",
+	 	"kp_name" : "Team",
+	 	"bmat_name" : "Team"
+	},
+	{
+	 	"name" : "Team",
+	 	"kp_name" : "Team",
+	 	"bmat_name" : "Team"
+	},
+	{
+	 	"name" : "Team",
+	 	"kp_name" : "Team",
+	 	"bmat_name" : "Team"
+	},
+	{
+	 	"name" : "Team",
+	 	"kp_name" : "Team",
+	 	"bmat_name" : "Team"
 	},
 	{
 	 	"name" : "Temple",
@@ -1552,17 +1632,17 @@
 	{
 	 	"name" : "UNC Asheville",
 	 	"kp_name" : "UNC Asheville",
-	 	"bmat_name" : "NC-Asheville"
+	 	"bmat_name" : "NC Asheville"
 	},
 	{
 	 	"name" : "UNC Greensboro",
 	 	"kp_name" : "UNC Greensboro",
-	 	"bmat_name" : "NC-Greensboro"
+	 	"bmat_name" : "UNC Greensboro"
 	},
 	{
 	 	"name" : "UNC Wilmington",
 	 	"kp_name" : "UNC Wilmington",
-	 	"bmat_name" : "NC-Wilmington"
+	 	"bmat_name" : "NC Wilmington"
 	},
 	{
 	 	"name" : "UNLV",

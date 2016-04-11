@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326221738) do
+ActiveRecord::Schema.define(version: 20160411210312) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -24,9 +27,9 @@ ActiveRecord::Schema.define(version: 20160326221738) do
     t.datetime "updated_at"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -43,8 +46,20 @@ ActiveRecord::Schema.define(version: 20160326221738) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "bmatrix_stats", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "tournament_id"
+    t.integer  "rank"
+    t.decimal  "avg_seed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bmatrix_stats", ["team_id"], name: "index_bmatrix_stats_on_team_id", using: :btree
+  add_index "bmatrix_stats", ["tournament_id"], name: "index_bmatrix_stats_tournament_id", using: :btree
 
   create_table "bmatrix_teams", force: true do |t|
     t.string   "name"
@@ -53,51 +68,7 @@ ActiveRecord::Schema.define(version: 20160326221738) do
     t.datetime "updated_at"
   end
 
-  add_index "bmatrix_teams", ["name"], name: "index_bmatrix_teams_on_name"
-
-create_table "bmatrix_stats", force: true do |t|
-    t.integer  "team_id"
-    t.integer  "tournament_id"
-    t.integer  "rank"
-    t.decimal  "avg_seed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-end
-
-
-  add_index "bmatrix_stats", ["team_id"], name: "index_bmatrix_stats_on_team_id"
-  add_index "bmatrix_stats", ["tournament_id"], name: "index_bmatrix_stats_tournament_id"
-
- create_table "kenpom_teams", force: true do |t|
-    t.string   "name"
-    t.string   "conf"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "kenpom_teams", ["name"], name: "index_kenpom_teams_on_name"
-
-create_table "kenpom_stats", force: true do |t|
-    t.integer  "team_id"
-    t.integer  "tournament_id"
-    t.integer  "rank"
-    t.string   "wl"
-    t.decimal  "pyth"
-    t.decimal  "adjo"
-    t.decimal  "adjd"
-    t.decimal  "adjt"
-    t.decimal  "luck"
-    t.decimal  "pyth_sched"
-    t.decimal  "oppo_sched"
-    t.decimal  "oppd_sched"
-    t.decimal  "pyth_ncsos"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-end
-
-
-  add_index "kenpom_stats", ["team_id"], name: "index_kenpom_stats_on_team_id"
-  add_index "kenpom_stats", ["tournament_id"], name: "index_kenpom_stats_tournament_id"
+  add_index "bmatrix_teams", ["name"], name: "index_bmatrix_teams_on_name", using: :btree
 
   create_table "conferences", force: true do |t|
     t.string   "name"
@@ -122,7 +93,50 @@ end
     t.datetime "updated_at"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "kenpom_stats", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "tournament_id"
+    t.integer  "rank"
+    t.string   "wl"
+    t.decimal  "pyth"
+    t.decimal  "adjo"
+    t.decimal  "adjd"
+    t.decimal  "adjt"
+    t.decimal  "luck"
+    t.decimal  "pyth_sched"
+    t.decimal  "oppo_sched"
+    t.decimal  "oppd_sched"
+    t.decimal  "pyth_ncsos"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "kenpom_stats", ["team_id"], name: "index_kenpom_stats_on_team_id", using: :btree
+  add_index "kenpom_stats", ["tournament_id"], name: "index_kenpom_stats_tournament_id", using: :btree
+
+  create_table "kenpom_teams", force: true do |t|
+    t.string   "name"
+    t.string   "conf"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "kenpom_teams", ["name"], name: "index_kenpom_teams_on_name", using: :btree
+
+  create_table "regions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rounds", force: true do |t|
+    t.integer  "number"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "teams", force: true do |t|
     t.string   "name"
@@ -133,7 +147,7 @@ end
     t.datetime "updated_at"
   end
 
-  add_index "teams", ["name"], name: "index_teams_on_name"
+  add_index "teams", ["name"], name: "index_teams_on_name", using: :btree
 
   create_table "tournament_teams", force: true do |t|
     t.integer  "team_id"
@@ -142,8 +156,8 @@ end
     t.datetime "updated_at"
   end
 
-  add_index "tournament_teams", ["team_id"], name: "index_tournament_teams_on_team_id"
-  add_index "tournament_teams", ["tournament_id"], name: "index_tournament_teams_on_tournament_id"
+  add_index "tournament_teams", ["team_id"], name: "index_tournament_teams_on_team_id", using: :btree
+  add_index "tournament_teams", ["tournament_id"], name: "index_tournament_teams_on_tournament_id", using: :btree
 
   create_table "tournaments", force: true do |t|
     t.string   "name"
@@ -168,7 +182,7 @@ end
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
