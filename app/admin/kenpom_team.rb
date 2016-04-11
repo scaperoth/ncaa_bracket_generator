@@ -1,5 +1,5 @@
 ActiveAdmin.register KenpomTeam do
-  permit_params :rank, :name,:conf, :wl, :pyth,:adjo, :adjd , :adjt, :luck, :pyth_sched, :oppo_sched, :oppd_sched, :pyth_ncsos
+  permit_params :name,:conf
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

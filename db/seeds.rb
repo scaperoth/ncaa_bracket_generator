@@ -12,52 +12,62 @@ AdminUser.create!(email: ENV["NCAA_ADMIN_USER"], password: ENV["NCAA_ADMIN_PASSW
 #save the seeds from kenpom
 seeds = Hash.new
 
-#crawl the kenpom site
-@crawler.kenPomCrawler 
-@crawler.kp_team_data.each do |key, row| 
-  name = row["team"]
-  clean_name = row["team"][/[^\d]+/].rstrip.downcase
-  
-  #store the seed in a hash
-  seed =  name.scan( /\d+$/ ).first.to_i
-  seeds[clean_name] = seed
-  
-  KenpomTeam.create(:name => clean_name, :rank => row["rank"], :conf => row["conf"],:wl => row["w-l"],:pyth => row["pyth"],:adjo => row["adjo"],:adjd => row["adjd"],:adjt => row["adjt"],:luck => row["luck"],:pyth_sched => row["pyth_sched"],:oppo_sched => row["oppo_sched"],:oppd_sched => row["oppd_sched"],:pyth_ncsos => row["pyth_ncsos"]) 
-end 
-
-#crawl the bracketmatrix site
-@crawler.bracketMatrixCrawler
-@crawler.bmat_team_data.each do |key, row|
-  name = row["name"]
-  clean_name = row["name"][/[^\d]+/].rstrip.downcase
-  
-  BmatrixTeam.create(:name => clean_name, :rank => row["rank"], :conf => row["conf"],:avg_seed=>row["avg_seed"]) 
-end 
-
 conference = ActiveSupport::JSON.decode(File.read('db/seed_files/conference.json'))
 conference.each do |e|
   Conference.create(:name=>e['name'], :kp_name=>e['kp_name'], :bmat_name=>e['bmat_name'])
 end
 
-tournament_teams = Array.new
+tournaments = ActiveSupport::JSON.decode(File.read('db/seed_files/tournament.json'))
+tournaments.each do |e|
+  year = e["year"]
+  tournament = Tournament.create(:name=>e['name'], :date => e['date'], :year=>e['year'])
+  
+  #crawl the bracketmatrix site
+  @crawler.bracketMatrixCrawler(year)
+  @crawler.bmat_team_data.each do |key, row|
+    name = row["name"]
+    clean_name = row["name"][/[^\d]+/].rstrip.downcase
+    
+    bmat_team = BmatrixTeam.find_by name: clean_name
+    if(bmat_team.nil?)
+      bmat_team = BmatrixTeam.create(:name => clean_name, :conf => row["conf"])
+    end
+    
+    BmatrixStats.create( :team_id => bmat_team.id, :tournament_id => tournament.id, :rank => row["rank"], :avg_seed=>row["avg_seed"]) 
+  end 
+  
+  #crawl the kenpom site
+  @crawler.kenPomCrawler(year)
+  @crawler.kp_team_data.each do |key, row| 
+    name = row["team"]
+    clean_name = row["team"][/[^\d]+/].rstrip.downcase
+    
+    #store the seed in a hash
+    seed =  name.scan( /\d+$/ ).first.to_i
+    seeds[clean_name] = seed
+    
+    kp_team = KenpomTeam.find_by name: clean_name
+    if(kp_team.nil?)
+      kp_team = KenpomTeam.create(:name => clean_name, :conf => row["conf"])
+    end
+    KenpomStats.create(:team_id => kp_team.id, :tournament_id => tournament.id, :rank => row["rank"],:wl => row["w-l"],:pyth => row["pyth"],:adjo => row["adjo"],:adjd => row["adjd"],:adjt => row["adjt"],:luck => row["luck"],:pyth_sched => row["pyth_sched"],:oppo_sched => row["oppo_sched"],:oppd_sched => row["oppd_sched"],:pyth_ncsos => row["pyth_ncsos"]) 
+  end 
+  
+end
 
-team = ActiveSupport::JSON.decode(File.read('db/seed_files/team.json'))
-team.each do |e|
+teams = ActiveSupport::JSON.decode(File.read('db/seed_files/team.json'))
+teams.each do |e|
   kp = KenpomTeam.find_by name: (e['kp_name'].downcase)
   bmat = BmatrixTeam.find_by name: (e['bmat_name'].downcase)
-  new_team = Team.create(:name=>e['name'].downcase, :kenpom_team=>kp, :bmatrix_team=>bmat)
-  tournament_teams.push(new_team)
+  conf = Conference.find_by kp_name: kp.conf
+  new_team = Team.create(:name=>e['name'].downcase, :conference_id => conf.id, :kenpom_team=>kp, :bmatrix_team=>bmat)
 end
 
-tournaments = Array.new
-
-tournament= ActiveSupport::JSON.decode(File.read('db/seed_files/tournament.json'))
-tournament.each do |e|
-  tournament = Tournament.create(:name=>e['name'], :year=>e['year'])
-  tournaments.push(tournament)
+Tournament.find_each do |tournament|
+    BmatrixStats.where(tournament_id: tournament.id).find_each do |bmat_stat_team|
+      bmat_team = BmatrixTeam.find_by id: bmat_stat_team.team_id
+      tournament_team = Team.find_by bmatrix_team: bmat_team
+      tt = TournamentTeam.create(:tournament_id => tournament.id, :team_id=>tournament_team.id)
+    end
+  
 end
-
-tournament_teams.each do |tournament_team|
-  tt = TournamentTeam.create(:tournament => tournaments[0], :team=>tournament_team)
-end
-

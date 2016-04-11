@@ -1,5 +1,5 @@
 ActiveAdmin.register Team do
-  permit_params :name, :kenpom_team_id, :bmatrix_team_id
+  permit_params :name, :conference_id, :kenpom_team_id, :bmatrix_team_id
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

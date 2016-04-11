@@ -1,5 +1,5 @@
-ActiveAdmin.register BmatrixTeam do
-  permit_params :name,:conf
+ActiveAdmin.register BmatrixStats do
+  permit_params :team_id, :tournament_id, :rank, :avg_seed
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

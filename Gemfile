@@ -38,7 +38,7 @@ gem 'nokogiri'
 # gem 'capistrano-rails', group: :development
 
 #use puma for heroku
-gem 'puma'
+#gem 'puma'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
@@ -58,7 +58,7 @@ gem 'bootstrap-sass', '3.3.5'
 gem 'bootstrap-sass-extras'
 gem 'tzinfo-data'
 gem 'validates_formatting_of'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 group :development do
   gem 'better_errors'

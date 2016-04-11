@@ -47,15 +47,57 @@ ActiveRecord::Schema.define(version: 20160326221738) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
   create_table "bmatrix_teams", force: true do |t|
-    t.integer  "rank"
     t.string   "name"
     t.string   "conf"
-    t.decimal  "avg_seed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "bmatrix_teams", ["name"], name: "index_bmatrix_teams_on_name"
+
+create_table "bmatrix_stats", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "tournament_id"
+    t.integer  "rank"
+    t.decimal  "avg_seed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+end
+
+
+  add_index "bmatrix_stats", ["team_id"], name: "index_bmatrix_stats_on_team_id"
+  add_index "bmatrix_stats", ["tournament_id"], name: "index_bmatrix_stats_tournament_id"
+
+ create_table "kenpom_teams", force: true do |t|
+    t.string   "name"
+    t.string   "conf"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "kenpom_teams", ["name"], name: "index_kenpom_teams_on_name"
+
+create_table "kenpom_stats", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "tournament_id"
+    t.integer  "rank"
+    t.string   "wl"
+    t.decimal  "pyth"
+    t.decimal  "adjo"
+    t.decimal  "adjd"
+    t.decimal  "adjt"
+    t.decimal  "luck"
+    t.decimal  "pyth_sched"
+    t.decimal  "oppo_sched"
+    t.decimal  "oppd_sched"
+    t.decimal  "pyth_ncsos"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+end
+
+
+  add_index "kenpom_stats", ["team_id"], name: "index_kenpom_stats_on_team_id"
+  add_index "kenpom_stats", ["tournament_id"], name: "index_kenpom_stats_tournament_id"
 
   create_table "conferences", force: true do |t|
     t.string   "name"
@@ -82,28 +124,9 @@ ActiveRecord::Schema.define(version: 20160326221738) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
-  create_table "kenpom_teams", force: true do |t|
-    t.integer  "rank"
-    t.string   "name"
-    t.string   "conf"
-    t.string   "wl"
-    t.decimal  "pyth"
-    t.decimal  "adjo"
-    t.decimal  "adjd"
-    t.decimal  "adjt"
-    t.decimal  "luck"
-    t.decimal  "pyth_sched"
-    t.decimal  "oppo_sched"
-    t.decimal  "oppd_sched"
-    t.decimal  "pyth_ncsos"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "kenpom_teams", ["name"], name: "index_kenpom_teams_on_name"
-
   create_table "teams", force: true do |t|
     t.string   "name"
+    t.integer  "conference_id"
     t.integer  "kenpom_team_id"
     t.integer  "bmatrix_team_id"
     t.datetime "created_at"
@@ -124,7 +147,8 @@ ActiveRecord::Schema.define(version: 20160326221738) do
 
   create_table "tournaments", force: true do |t|
     t.string   "name"
-    t.date     "year"
+    t.date     "date"
+    t.string   "year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

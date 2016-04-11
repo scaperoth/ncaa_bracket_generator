@@ -17,8 +17,33 @@ class Crawler
     @bmat_column_names = Hash.new
   end
   
+  def get_year_url(year, which_url = "kenpom")
+    
+    current_year = Time.now.year
+    
+    kenpom_url = "http://kenpom.com/index.php?y=#{year}"
+    bracket_matrix_url = "http://bracketmatrix.com/matrix_#{year}.html"
+    
+    if(current_year = year)
+      kenpom_url = "http://kenpom.com/"
+      bracket_matrix_url = "http://bracketmatrix.com/"
+    end
+    
+    if which_url.eql? "kenpom"
+      return kenpom_url
+    end
+    
+    return bracket_matrix_url
+    
+  end
+  
   #crawls the bracket matrix website and parses the html data into a 2D hash
-  def bracketMatrixCrawler
+  def bracketMatrixCrawler(year = nil)
+    if(year.nil?)
+      year = Time.now.year
+    end
+    
+    url = get_year_url(year, "bracket matrix")
     curr_row = 0
     curr_column = 0
     rank = 0
@@ -29,7 +54,7 @@ class Crawler
 
     db_columns = ["rank", "name", "conf", "avg_seed"]
     
-    doc = Nokogiri::HTML(File.open("#{Rails.root}/app/views/test/bracketmatrix.html.erb"))
+    doc = Nokogiri::HTML(open(url))
 
 
     #num_columns = (num_columns/num_rows) + 1
@@ -64,7 +89,12 @@ class Crawler
   end
   
   #crawls the kenpom website and parses the html data into a 2D hash
-  def kenPomCrawler
+  def kenPomCrawler(year = nil)
+    if(year.nil?)
+      year = Time.now.year
+    end
+    
+    url = get_year_url(year, "kenpom")
     columns = 0;
     append = ""
     # counter
@@ -75,7 +105,7 @@ class Crawler
 
     # Fetch and parse HTML document
     #doc = Nokogiri::HTML(open(@url))
-    doc = Nokogiri::HTML(File.open("#{Rails.root}/app/views/test/kenpom.html.erb"))
+    doc = Nokogiri::HTML(open(url))
 
     #get the columns and column names first
     doc.css('table thead:first-child tr:nth-child(2) th').each do |link|
