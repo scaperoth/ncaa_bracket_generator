@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20160411210312) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "bmatrix_stats", force: true do |t|
-    t.integer  "team_id"
+    t.integer  "bmatrix_team_id"
     t.integer  "tournament_id"
     t.integer  "rank"
     t.decimal  "avg_seed"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20160411210312) do
     t.datetime "updated_at"
   end
 
-  add_index "bmatrix_stats", ["team_id"], name: "index_bmatrix_stats_on_team_id", using: :btree
+  add_index "bmatrix_stats", ["bmatrix_team_id"], name: "index_bmatrix_stats_on_bmatrix_team_id", using: :btree
   add_index "bmatrix_stats", ["tournament_id"], name: "index_bmatrix_stats_tournament_id", using: :btree
 
   create_table "bmatrix_teams", force: true do |t|
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20160411210312) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "kenpom_stats", force: true do |t|
-    t.integer  "team_id"
+    t.integer  "kenpom_team_id"
     t.integer  "tournament_id"
     t.integer  "rank"
     t.string   "wl"
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20160411210312) do
     t.datetime "updated_at"
   end
 
-  add_index "kenpom_stats", ["team_id"], name: "index_kenpom_stats_on_team_id", using: :btree
+  add_index "kenpom_stats", ["kenpom_team_id"], name: "index_kenpom_stats_on_kenpom_team_id", using: :btree
   add_index "kenpom_stats", ["tournament_id"], name: "index_kenpom_stats_tournament_id", using: :btree
 
   create_table "kenpom_teams", force: true do |t|

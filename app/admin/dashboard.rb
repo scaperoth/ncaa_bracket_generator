@@ -14,9 +14,9 @@ ActiveAdmin.register_page "Dashboard" do
     #
     columns do
       column do
-        panel "Recent Posts" do
+        panel "Recent Teams" do
           ul do
-            Team.limit(5).map do |team|
+            Team.limit(25).map do |team|
               li link_to(team.name, admin_team_path(team))
             end
           end
@@ -25,7 +25,7 @@ ActiveAdmin.register_page "Dashboard" do
 
       column do
         panel "Info" do
-          para "Welcome to ActiveAdmin."
+          para "Number of teams: "+Team.all.count.to_s
         end
       end
     end

@@ -33,7 +33,7 @@ tournaments.each do |e|
       bmat_team = BmatrixTeam.create(:name => clean_name, :conf => row["conf"])
     end
     
-    BmatrixStat.create( :team_id => bmat_team.id, :tournament_id => tournament.id, :rank => row["rank"], :avg_seed=>row["avg_seed"]) 
+    BmatrixStat.create( :bmatrix_team_id => bmat_team.id, :tournament_id => tournament.id, :rank => row["rank"], :avg_seed=>row["avg_seed"]) 
   end 
   
   #crawl the kenpom site
@@ -50,7 +50,7 @@ tournaments.each do |e|
     if(kp_team.nil?)
       kp_team = KenpomTeam.create(:name => clean_name, :conf => row["conf"])
     end
-    KenpomStat.create(:team_id => kp_team.id, :tournament_id => tournament.id, :rank => row["rank"],:wl => row["w-l"],:pyth => row["pyth"],:adjo => row["adjo"],:adjd => row["adjd"],:adjt => row["adjt"],:luck => row["luck"],:pyth_sched => row["pyth_sched"],:oppo_sched => row["oppo_sched"],:oppd_sched => row["oppd_sched"],:pyth_ncsos => row["pyth_ncsos"]) 
+    KenpomStat.create(:kenpom_team_id => kp_team.id, :tournament_id => tournament.id, :rank => row["rank"],:wl => row["w-l"],:pyth => row["pyth"],:adjo => row["adjo"],:adjd => row["adjd"],:adjt => row["adjt"],:luck => row["luck"],:pyth_sched => row["pyth_sched"],:oppo_sched => row["oppo_sched"],:oppd_sched => row["oppd_sched"],:pyth_ncsos => row["pyth_ncsos"]) 
   end 
   
 end
@@ -65,7 +65,7 @@ end
 
 Tournament.find_each do |tournament|
     BmatrixStat.where(tournament_id: tournament.id).find_each do |bmat_stat_team|
-      bmat_team = BmatrixTeam.find_by id: bmat_stat_team.team_id
+      bmat_team = BmatrixTeam.find_by id: bmat_stat_team.bmatrix_team_id
       tournament_team = Team.find_by bmatrix_team: bmat_team
       tt = TournamentTeam.create(:tournament_id => tournament.id, :team_id=>tournament_team.id)
     end

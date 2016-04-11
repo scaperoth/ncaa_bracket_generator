@@ -26,14 +26,14 @@ class Crawler
     
     if(current_year == year)
       kenpom_url = "http://kenpom.com/"
-      bracket_matrix_url = "http://bracketmatrix.com/"
+      bracket_matrix_url = "http://bracketmatrix.com"
     end
     
     if which_url.eql? "kenpom"
       return kenpom_url
+    else
+      return bracket_matrix_url
     end
-    
-    return bracket_matrix_url
     
   end
   

@@ -9,7 +9,7 @@ ActiveAdmin.register KenpomTeam do
 end
 
 ActiveAdmin.register KenpomStat do
-  permit_params :team_id, :tournament_id, :rank, :wl, :pyth,:adjo, :adjd , :adjt, :luck, :pyth_sched, :oppo_sched, :oppd_sched, :pyth_ncsos
+  permit_params :kenpom_team_id, :tournament_id, :rank, :wl, :pyth,:adjo, :adjd , :adjt, :luck, :pyth_sched, :oppo_sched, :oppd_sched, :pyth_ncsos
   menu :parent => "Team Data"
 end
 
@@ -19,6 +19,6 @@ ActiveAdmin.register BmatrixTeam do
 end
 
 ActiveAdmin.register BmatrixStat do
-  permit_params :team_id, :tournament_id, :rank, :avg_seed
+  permit_params :bmatrix_team_id, :tournament_id, :rank, :avg_seed
   menu :parent => "Team Data"
 end
