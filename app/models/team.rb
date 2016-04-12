@@ -3,7 +3,8 @@ class Team < ActiveRecord::Base
   belongs_to :bmatrix_team
   belongs_to :conference
   
-  has_many :teams_tournaments
-  
-  has_many :tournaments, :through => :teams_tournaments
+  has_many :brackets
+  has_many :tournaments, :through => :brackets
+  has_many :regions, :through => :brackets
+  has_many :rounds, :through => :brackets
 end

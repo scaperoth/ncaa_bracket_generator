@@ -12,10 +12,24 @@ AdminUser.create!(email: ENV["NCAA_ADMIN_USER"], password: ENV["NCAA_ADMIN_PASSW
 #save the seeds from kenpom
 seeds = Hash.new
 
+#seed the conferences
 conference = ActiveSupport::JSON.decode(File.read('db/seed_files/conference.json'))
 conference.each do |e|
   Conference.create(:name=>e['name'], :kp_name=>e['kp_name'], :bmat_name=>e['bmat_name'])
 end
+
+#seed the rounds
+rounds = ActiveSupport::JSON.decode(File.read('db/seed_files/rounds.json'))
+rounds.each do |round|
+  Round.create(:number => round["number"], :name => round["name"])
+end
+
+#seed the regions
+regions = ActiveSupport::JSON.decode(File.read('db/seed_files/regions.json'))
+regions.each do |region|
+  Region.create(:name => region["region"])
+end
+
 
 #get tournament data
 tournaments = ActiveSupport::JSON.decode(File.read('db/seed_files/tournament.json'))
@@ -55,7 +69,7 @@ tournaments.each do |e|
     :adjo => row["adjo"],:adjd => row["adjd"],:adjt => row["adjt"],:luck => row["luck"],:pyth_sched => row["pyth_sched"],
     :oppo_sched => row["oppo_sched"],:oppd_sched => row["oppd_sched"],:pyth_ncsos => row["pyth_ncsos"]) 
   end 
-  
+ 
 end
 
 teams = ActiveSupport::JSON.decode(File.read('db/seed_files/team.json'))
@@ -66,20 +80,5 @@ teams.each do |e|
   new_team = Team.create(:name=>e['name'].downcase, :conference_id => conf.id, :kenpom_team=>kp, :bmatrix_team=>bmat)
 end
 
-Tournament.find_each do |tournament|
-    BmatrixStat.where(tournament_id: tournament.id).find_each do |bmat_stat_team|
-      bmat_team = BmatrixTeam.find_by id: bmat_stat_team.bmatrix_team_id
-      tournament_team = Team.find_by bmatrix_team: bmat_team
-      tt = TeamsTournament.create(:tournament_id => tournament.id, :team_id=>tournament_team.id)
-    end
-end
 
-rounds = ActiveSupport::JSON.decode(File.read('db/seed_files/rounds.json'))
-rounds.each do |round|
-  Round.create(:number => round["number"], :name => round["name"])
-end
 
-regions = ActiveSupport::JSON.decode(File.read('db/seed_files/regions.json'))
-regions.each do |region|
-  Region.create(:name => region["region"])
-end
