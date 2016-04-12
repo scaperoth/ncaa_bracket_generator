@@ -110,7 +110,7 @@ class Crawler
     #get the columns and column names first
     doc.css('table thead:first-child tr:nth-child(2) th').each do |link|
       if columns> 11
-        prepend = "ncsos_"
+        append = "_ncsos"
       elsif columns > 8
         append = "_sched"
       end

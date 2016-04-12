@@ -17,7 +17,9 @@ conference.each do |e|
   Conference.create(:name=>e['name'], :kp_name=>e['kp_name'], :bmat_name=>e['bmat_name'])
 end
 
+#get tournament data
 tournaments = ActiveSupport::JSON.decode(File.read('db/seed_files/tournament.json'))
+#loop through each tournament
 tournaments.each do |e|
   year = e["year"]
   tournament = Tournament.create(:name=>e['name'], :date => e['date'], :year=>e['year'])
@@ -45,12 +47,13 @@ tournaments.each do |e|
     #store the seed in a hash
     seed =  name.scan( /\d+$/ ).first.to_i
     seeds[clean_name] = seed
-    
     kp_team = KenpomTeam.find_by name: clean_name
     if(kp_team.nil?)
       kp_team = KenpomTeam.create(:name => clean_name, :conf => row["conf"])
     end
-    KenpomStat.create(:kenpom_team_id => kp_team.id, :tournament_id => tournament.id, :rank => row["rank"],:wl => row["w-l"],:pyth => row["pyth"],:adjo => row["adjo"],:adjd => row["adjd"],:adjt => row["adjt"],:luck => row["luck"],:pyth_sched => row["pyth_sched"],:oppo_sched => row["oppo_sched"],:oppd_sched => row["oppd_sched"],:pyth_ncsos => row["pyth_ncsos"]) 
+    KenpomStat.create(:kenpom_team_id => kp_team.id, :tournament_id => tournament.id, :rank => row["rank"],:wl => row["w-l"],:pyth => row["pyth"],
+    :adjo => row["adjo"],:adjd => row["adjd"],:adjt => row["adjt"],:luck => row["luck"],:pyth_sched => row["pyth_sched"],
+    :oppo_sched => row["oppo_sched"],:oppd_sched => row["oppd_sched"],:pyth_ncsos => row["pyth_ncsos"]) 
   end 
   
 end
