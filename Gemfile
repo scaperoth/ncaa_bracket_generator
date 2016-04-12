@@ -63,6 +63,9 @@ gem 'rails_12factor', group: :production
 #design theme for active admin
 gem 'flattened_active_admin'
 
+#ability to generate erd
+gem "rails-erd"
+
 group :development do
   gem 'better_errors'
 end

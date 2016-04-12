@@ -70,7 +70,7 @@ Tournament.find_each do |tournament|
     BmatrixStat.where(tournament_id: tournament.id).find_each do |bmat_stat_team|
       bmat_team = BmatrixTeam.find_by id: bmat_stat_team.bmatrix_team_id
       tournament_team = Team.find_by bmatrix_team: bmat_team
-      tt = TournamentTeam.create(:tournament_id => tournament.id, :team_id=>tournament_team.id)
+      tt = TeamsTournament.create(:tournament_id => tournament.id, :team_id=>tournament_team.id)
     end
 end
 

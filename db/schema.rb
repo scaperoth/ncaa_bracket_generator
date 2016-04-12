@@ -168,15 +168,15 @@ ActiveRecord::Schema.define(version: 20160412171821) do
   add_index "tournament_matches", ["tournament_id"], name: "index_tournament_matches_on_tournament_id", using: :btree
   add_index "tournament_matches", ["winner_id"], name: "index_tournament_matches_on_winner_id", using: :btree
 
-  create_table "tournament_teams", force: true do |t|
+  create_table "teams_tournaments", force: true do |t|
     t.integer  "team_id"
     t.integer  "tournament_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "tournament_teams", ["team_id"], name: "index_tournament_teams_on_team_id", using: :btree
-  add_index "tournament_teams", ["tournament_id"], name: "index_tournament_teams_on_tournament_id", using: :btree
+  add_index "teams_tournaments", ["team_id"], name: "index_teams_tournaments_on_team_id", using: :btree
+  add_index "teams_tournaments", ["tournament_id"], name: "index_teams_tournaments_on_tournament_id", using: :btree
 
   create_table "tournaments", force: true do |t|
     t.string   "name"
