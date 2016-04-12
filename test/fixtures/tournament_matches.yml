@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tournament_id: 
+  region_id: 
+  round_id: 
+  team1_id: 
+  team2_id: 
+  weight: 1
+  winner_id: 
+
+two:
+  tournament_id: 
+  region_id: 
+  round_id: 
+  team1_id: 
+  team2_id: 
+  weight: 1
+  winner_id: 
