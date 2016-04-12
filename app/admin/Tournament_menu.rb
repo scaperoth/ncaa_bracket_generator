@@ -23,3 +23,7 @@ ActiveAdmin.register TournamentTeam do
   menu :parent => "Tournament Data"
 end
 
+ActiveAdmin.register TournamentMatch do
+  menu :parent => "Tournament Data"
+end
+
