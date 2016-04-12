@@ -80,5 +80,11 @@ teams.each do |e|
   new_team = Team.create(:name=>e['name'].downcase, :conference_id => conf.id, :kenpom_team=>kp, :bmatrix_team=>bmat)
 end
 
-
+bracket_games = ActiveSupport::JSON.decode(File.read('db/seed_files/tournament_matches.json'))
+bracket_games.each do |game|
+  BracketGame.create(:tournament_id => game["tournament_id"], :round_id => game["round-id"], 
+  :region_id => game["region_id"], :team_id => game["team_id"], :team2_id => game["team2_id"], 
+  :weight => game["weight"], :winner_id => game["winner_id"])
+  
+end
 

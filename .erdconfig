@@ -10,7 +10,7 @@ indirect: false
 inheritance: false
 markup: true
 notation: simple
-orientation: vertical
+orientation: horizontal
 polymorphism: true
 sort: true
 warn: true

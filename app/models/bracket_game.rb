@@ -1,4 +1,4 @@
-class Bracket < ActiveRecord::Base
+class BracketGame < ActiveRecord::Base
   belongs_to :tournament
   belongs_to :region
   belongs_to :round
