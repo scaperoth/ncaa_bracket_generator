@@ -1,7 +1,7 @@
 class Round < ActiveRecord::Base
-  has_many :brackets
-  has_many :tournaments, :through => :brackets
-  has_many :regions, :through => :brackets
-  has_many :teams, :through => :brackets
+  has_many :bracket_games
+  has_many :tournaments, :through => :bracket_games
+  has_many :regions, :through => :bracket_games
+  has_many :teams, :through => :bracket_games
 end
 
