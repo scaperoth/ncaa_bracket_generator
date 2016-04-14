@@ -1,6 +1,6 @@
 [  
    {  
-      "id":62,
+      "id":63,
       "tournament_id":1,
       "round_id":3,
       "region_id":null,
@@ -8,11 +8,11 @@
       "team2_id":217,
       "weight":0,
       "winner_id":328,
-      "created_at":"2016-04-13T00:35:40.314Z",
-      "updated_at":"2016-04-13T00:36:00.819Z"
+      "created_at":"2016-04-14T05:58:46.799Z",
+      "updated_at":"2016-04-14T05:58:46.799Z"
    },
    {  
-      "id":61,
+      "id":62,
       "tournament_id":1,
       "round_id":4,
       "region_id":4,
@@ -20,35 +20,35 @@
       "team2_id":282,
       "weight":0,
       "winner_id":282,
-      "created_at":"2016-04-13T00:35:07.889Z",
-      "updated_at":"2016-04-13T00:35:07.889Z"
+      "created_at":"2016-04-14T05:58:46.798Z",
+      "updated_at":"2016-04-14T05:58:46.798Z"
+   },
+   {  
+      "id":61,
+      "tournament_id":1,
+      "round_id":4,
+      "region_id":2,
+      "team_id":221,
+      "team2_id":217,
+      "weight":0,
+      "winner_id":217,
+      "created_at":"2016-04-14T05:58:46.796Z",
+      "updated_at":"2016-04-14T05:58:46.796Z"
    },
    {  
       "id":60,
       "tournament_id":1,
       "round_id":4,
       "region_id":3,
-      "team_id":221,
-      "team2_id":217,
-      "weight":0,
-      "winner_id":217,
-      "created_at":"2016-04-13T00:34:52.697Z",
-      "updated_at":"2016-04-13T00:34:52.697Z"
-   },
-   {  
-      "id":59,
-      "tournament_id":1,
-      "round_id":4,
-      "region_id":2,
       "team_id":197,
       "team2_id":213,
       "weight":0,
       "winner_id":197,
-      "created_at":"2016-04-13T00:34:27.361Z",
-      "updated_at":"2016-04-13T00:34:27.361Z"
+      "created_at":"2016-04-14T05:58:46.795Z",
+      "updated_at":"2016-04-14T05:58:46.795Z"
    },
    {  
-      "id":58,
+      "id":59,
       "tournament_id":1,
       "round_id":2,
       "region_id":null,
@@ -56,11 +56,11 @@
       "team2_id":197,
       "weight":0,
       "winner_id":328,
-      "created_at":"2016-04-13T00:33:06.673Z",
-      "updated_at":"2016-04-13T00:36:56.332Z"
+      "created_at":"2016-04-14T05:58:46.793Z",
+      "updated_at":"2016-04-14T05:58:46.793Z"
    },
    {  
-      "id":57,
+      "id":58,
       "tournament_id":1,
       "round_id":5,
       "region_id":4,
@@ -68,11 +68,11 @@
       "team2_id":282,
       "weight":1,
       "winner_id":282,
-      "created_at":"2016-04-13T00:32:36.718Z",
-      "updated_at":"2016-04-13T00:32:36.718Z"
+      "created_at":"2016-04-14T05:58:46.791Z",
+      "updated_at":"2016-04-14T05:58:46.791Z"
    },
    {  
-      "id":56,
+      "id":57,
       "tournament_id":1,
       "round_id":5,
       "region_id":4,
@@ -80,11 +80,11 @@
       "team2_id":126,
       "weight":0,
       "winner_id":329,
-      "created_at":"2016-04-13T00:32:23.888Z",
-      "updated_at":"2016-04-13T00:32:23.888Z"
+      "created_at":"2016-04-14T05:58:46.789Z",
+      "updated_at":"2016-04-14T05:58:46.789Z"
    },
    {  
-      "id":55,
+      "id":56,
       "tournament_id":1,
       "round_id":5,
       "region_id":3,
@@ -92,11 +92,11 @@
       "team2_id":217,
       "weight":1,
       "winner_id":217,
-      "created_at":"2016-04-13T00:32:03.010Z",
-      "updated_at":"2016-04-13T00:32:03.010Z"
+      "created_at":"2016-04-14T05:58:46.783Z",
+      "updated_at":"2016-04-14T05:58:46.783Z"
    },
    {  
-      "id":54,
+      "id":55,
       "tournament_id":1,
       "round_id":5,
       "region_id":3,
@@ -104,35 +104,35 @@
       "team2_id":73,
       "weight":0,
       "winner_id":221,
-      "created_at":"2016-04-13T00:31:41.446Z",
-      "updated_at":"2016-04-13T00:31:41.446Z"
+      "created_at":"2016-04-14T05:58:46.782Z",
+      "updated_at":"2016-04-14T05:58:46.782Z"
+   },
+   {  
+      "id":54,
+      "tournament_id":1,
+      "round_id":5,
+      "region_id":3,
+      "team_id":213,
+      "team2_id":345,
+      "weight":1,
+      "winner_id":213,
+      "created_at":"2016-04-14T05:58:46.780Z",
+      "updated_at":"2016-04-14T05:59:45.326Z"
    },
    {  
       "id":53,
       "tournament_id":1,
       "round_id":5,
-      "region_id":2,
-      "team_id":213,
-      "team2_id":345,
-      "weight":1,
-      "winner_id":213,
-      "created_at":"2016-04-13T00:31:13.185Z",
-      "updated_at":"2016-04-13T00:31:13.185Z"
-   },
-   {  
-      "id":52,
-      "tournament_id":1,
-      "round_id":5,
-      "region_id":2,
+      "region_id":3,
       "team_id":197,
       "team2_id":122,
       "weight":0,
       "winner_id":197,
-      "created_at":"2016-04-13T00:31:01.379Z",
-      "updated_at":"2016-04-13T00:31:01.379Z"
+      "created_at":"2016-04-14T05:58:46.778Z",
+      "updated_at":"2016-04-14T06:00:20.329Z"
    },
    {  
-      "id":51,
+      "id":52,
       "tournament_id":1,
       "round_id":5,
       "region_id":1,
@@ -140,11 +140,11 @@
       "team2_id":328,
       "weight":1,
       "winner_id":328,
-      "created_at":"2016-04-13T00:30:39.688Z",
-      "updated_at":"2016-04-13T00:30:39.688Z"
+      "created_at":"2016-04-14T05:58:46.777Z",
+      "updated_at":"2016-04-14T05:58:46.777Z"
    },
    {  
-      "id":49,
+      "id":51,
       "tournament_id":1,
       "round_id":5,
       "region_id":1,
@@ -152,11 +152,11 @@
       "team2_id":160,
       "weight":0,
       "winner_id":133,
-      "created_at":"2016-04-13T00:29:36.720Z",
-      "updated_at":"2016-04-13T00:29:36.720Z"
+      "created_at":"2016-04-14T05:58:46.775Z",
+      "updated_at":"2016-04-14T05:58:46.775Z"
    },
    {  
-      "id":48,
+      "id":50,
       "tournament_id":1,
       "round_id":6,
       "region_id":4,
@@ -164,11 +164,11 @@
       "team2_id":170,
       "weight":3,
       "winner_id":282,
-      "created_at":"2016-04-13T00:28:24.985Z",
-      "updated_at":"2016-04-13T00:28:24.985Z"
+      "created_at":"2016-04-14T05:58:46.773Z",
+      "updated_at":"2016-04-14T05:58:46.773Z"
    },
    {  
-      "id":47,
+      "id":49,
       "tournament_id":1,
       "round_id":6,
       "region_id":4,
@@ -176,11 +176,11 @@
       "team2_id":319,
       "weight":2,
       "winner_id":102,
-      "created_at":"2016-04-13T00:28:12.069Z",
-      "updated_at":"2016-04-13T00:28:12.069Z"
+      "created_at":"2016-04-14T05:58:46.772Z",
+      "updated_at":"2016-04-14T05:58:46.772Z"
    },
    {  
-      "id":46,
+      "id":48,
       "tournament_id":1,
       "round_id":6,
       "region_id":4,
@@ -188,11 +188,11 @@
       "team2_id":126,
       "weight":1,
       "winner_id":126,
-      "created_at":"2016-04-13T00:27:44.339Z",
-      "updated_at":"2016-04-13T00:27:44.339Z"
+      "created_at":"2016-04-14T05:58:46.770Z",
+      "updated_at":"2016-04-14T05:58:46.770Z"
    },
    {  
-      "id":45,
+      "id":47,
       "tournament_id":1,
       "round_id":6,
       "region_id":4,
@@ -200,11 +200,11 @@
       "team2_id":34,
       "weight":0,
       "winner_id":329,
-      "created_at":"2016-04-13T00:27:19.928Z",
-      "updated_at":"2016-04-13T00:27:19.928Z"
+      "created_at":"2016-04-14T05:58:46.768Z",
+      "updated_at":"2016-04-14T05:58:46.768Z"
    },
    {  
-      "id":44,
+      "id":46,
       "tournament_id":1,
       "round_id":6,
       "region_id":3,
@@ -212,11 +212,11 @@
       "team2_id":217,
       "weight":3,
       "winner_id":217,
-      "created_at":"2016-04-13T00:26:55.242Z",
-      "updated_at":"2016-04-13T00:26:55.242Z"
+      "created_at":"2016-04-14T05:58:46.767Z",
+      "updated_at":"2016-04-14T05:58:46.767Z"
    },
    {  
-      "id":43,
+      "id":45,
       "tournament_id":1,
       "round_id":6,
       "region_id":3,
@@ -224,11 +224,11 @@
       "team2_id":290,
       "weight":2,
       "winner_id":290,
-      "created_at":"2016-04-13T00:26:36.020Z",
-      "updated_at":"2016-04-13T00:26:36.020Z"
+      "created_at":"2016-04-14T05:58:46.765Z",
+      "updated_at":"2016-04-14T05:58:46.765Z"
    },
    {  
-      "id":42,
+      "id":44,
       "tournament_id":1,
       "round_id":6,
       "region_id":3,
@@ -236,11 +236,11 @@
       "team2_id":73,
       "weight":1,
       "winner_id":73,
-      "created_at":"2016-04-13T00:25:42.031Z",
-      "updated_at":"2016-04-13T00:25:42.031Z"
+      "created_at":"2016-04-14T05:58:46.763Z",
+      "updated_at":"2016-04-14T05:58:46.763Z"
    },
    {  
-      "id":41,
+      "id":43,
       "tournament_id":1,
       "round_id":6,
       "region_id":3,
@@ -248,11 +248,11 @@
       "team2_id":245,
       "weight":0,
       "winner_id":221,
-      "created_at":"2016-04-13T00:25:30.364Z",
-      "updated_at":"2016-04-13T00:25:30.364Z"
+      "created_at":"2016-04-14T05:58:46.761Z",
+      "updated_at":"2016-04-14T05:58:46.761Z"
    },
    {  
-      "id":40,
+      "id":42,
       "tournament_id":1,
       "round_id":6,
       "region_id":2,
@@ -260,11 +260,11 @@
       "team2_id":349,
       "weight":3,
       "winner_id":345,
-      "created_at":"2016-04-13T00:23:41.334Z",
-      "updated_at":"2016-04-13T00:23:41.334Z"
+      "created_at":"2016-04-14T05:58:46.760Z",
+      "updated_at":"2016-04-14T05:58:46.760Z"
    },
    {  
-      "id":39,
+      "id":41,
       "tournament_id":1,
       "round_id":6,
       "region_id":2,
@@ -272,11 +272,11 @@
       "team2_id":279,
       "weight":2,
       "winner_id":213,
-      "created_at":"2016-04-13T00:23:15.638Z",
-      "updated_at":"2016-04-13T00:24:20.662Z"
+      "created_at":"2016-04-14T05:58:46.758Z",
+      "updated_at":"2016-04-14T05:58:46.758Z"
    },
    {  
-      "id":38,
+      "id":40,
       "tournament_id":1,
       "round_id":6,
       "region_id":2,
@@ -284,11 +284,11 @@
       "team2_id":137,
       "weight":1,
       "winner_id":122,
-      "created_at":"2016-04-13T00:22:25.216Z",
-      "updated_at":"2016-04-13T00:22:25.216Z"
+      "created_at":"2016-04-14T05:58:46.757Z",
+      "updated_at":"2016-04-14T05:58:46.757Z"
    },
    {  
-      "id":37,
+      "id":39,
       "tournament_id":1,
       "round_id":6,
       "region_id":2,
@@ -296,11 +296,11 @@
       "team2_id":233,
       "weight":0,
       "winner_id":197,
-      "created_at":"2016-04-13T00:22:08.984Z",
-      "updated_at":"2016-04-13T00:22:08.984Z"
+      "created_at":"2016-04-14T05:58:46.755Z",
+      "updated_at":"2016-04-14T05:58:46.755Z"
    },
    {  
-      "id":36,
+      "id":38,
       "tournament_id":1,
       "round_id":6,
       "region_id":1,
@@ -308,11 +308,11 @@
       "team2_id":328,
       "weight":3,
       "winner_id":328,
-      "created_at":"2016-04-13T00:21:28.940Z",
-      "updated_at":"2016-04-13T00:21:28.940Z"
+      "created_at":"2016-04-14T05:58:46.753Z",
+      "updated_at":"2016-04-14T05:58:46.753Z"
    },
    {  
-      "id":35,
+      "id":37,
       "tournament_id":1,
       "round_id":6,
       "region_id":1,
@@ -320,11 +320,11 @@
       "team2_id":166,
       "weight":2,
       "winner_id":166,
-      "created_at":"2016-04-13T00:21:17.223Z",
-      "updated_at":"2016-04-13T00:21:17.223Z"
+      "created_at":"2016-04-14T05:58:46.752Z",
+      "updated_at":"2016-04-14T05:58:46.752Z"
    },
    {  
-      "id":34,
+      "id":36,
       "tournament_id":1,
       "round_id":6,
       "region_id":1,
@@ -332,11 +332,11 @@
       "team2_id":109,
       "weight":1,
       "winner_id":160,
-      "created_at":"2016-04-13T00:20:30.654Z",
-      "updated_at":"2016-04-13T00:20:30.654Z"
+      "created_at":"2016-04-14T05:58:46.750Z",
+      "updated_at":"2016-04-14T05:58:46.750Z"
    },
    {  
-      "id":33,
+      "id":35,
       "tournament_id":1,
       "round_id":6,
       "region_id":1,
@@ -344,11 +344,11 @@
       "team2_id":59,
       "weight":0,
       "winner_id":133,
-      "created_at":"2016-04-13T00:19:57.621Z",
-      "updated_at":"2016-04-13T00:19:57.621Z"
+      "created_at":"2016-04-14T05:58:46.748Z",
+      "updated_at":"2016-04-14T05:58:46.748Z"
    },
    {  
-      "id":32,
+      "id":34,
       "tournament_id":1,
       "round_id":7,
       "region_id":4,
@@ -356,11 +356,11 @@
       "team2_id":170,
       "weight":7,
       "winner_id":170,
-      "created_at":"2016-04-13T00:18:45.623Z",
-      "updated_at":"2016-04-13T00:18:45.623Z"
+      "created_at":"2016-04-14T05:58:46.747Z",
+      "updated_at":"2016-04-14T05:58:46.747Z"
    },
    {  
-      "id":31,
+      "id":33,
       "tournament_id":1,
       "round_id":7,
       "region_id":4,
@@ -368,11 +368,11 @@
       "team2_id":282,
       "weight":6,
       "winner_id":282,
-      "created_at":"2016-04-13T00:18:31.832Z",
-      "updated_at":"2016-04-13T00:18:31.832Z"
+      "created_at":"2016-04-14T05:58:46.745Z",
+      "updated_at":"2016-04-14T05:58:46.745Z"
    },
    {  
-      "id":30,
+      "id":32,
       "tournament_id":1,
       "round_id":7,
       "region_id":4,
@@ -380,11 +380,11 @@
       "team2_id":92,
       "weight":5,
       "winner_id":319,
-      "created_at":"2016-04-13T00:18:17.725Z",
-      "updated_at":"2016-04-13T00:18:17.725Z"
+      "created_at":"2016-04-14T05:58:46.743Z",
+      "updated_at":"2016-04-14T05:58:46.743Z"
    },
    {  
-      "id":29,
+      "id":31,
       "tournament_id":1,
       "round_id":7,
       "region_id":4,
@@ -392,11 +392,11 @@
       "team2_id":102,
       "weight":4,
       "winner_id":102,
-      "created_at":"2016-04-13T00:18:02.241Z",
-      "updated_at":"2016-04-13T00:18:02.241Z"
+      "created_at":"2016-04-14T05:58:46.741Z",
+      "updated_at":"2016-04-14T05:58:46.741Z"
    },
    {  
-      "id":28,
+      "id":30,
       "tournament_id":1,
       "round_id":7,
       "region_id":4,
@@ -404,11 +404,11 @@
       "team2_id":124,
       "weight":3,
       "winner_id":126,
-      "created_at":"2016-04-13T00:17:49.809Z",
-      "updated_at":"2016-04-13T00:17:49.809Z"
+      "created_at":"2016-04-14T05:58:46.740Z",
+      "updated_at":"2016-04-14T05:58:46.740Z"
    },
    {  
-      "id":27,
+      "id":29,
       "tournament_id":1,
       "round_id":7,
       "region_id":4,
@@ -416,11 +416,11 @@
       "team2_id":14,
       "weight":2,
       "winner_id":14,
-      "created_at":"2016-04-13T00:17:28.661Z",
-      "updated_at":"2016-04-13T00:17:28.661Z"
+      "created_at":"2016-04-14T05:58:46.738Z",
+      "updated_at":"2016-04-14T05:58:46.738Z"
    },
    {  
-      "id":26,
+      "id":28,
       "tournament_id":1,
       "round_id":7,
       "region_id":4,
@@ -428,11 +428,11 @@
       "team2_id":34,
       "weight":1,
       "winner_id":34,
-      "created_at":"2016-04-13T00:17:08.216Z",
-      "updated_at":"2016-04-13T00:17:08.216Z"
+      "created_at":"2016-04-14T05:58:46.737Z",
+      "updated_at":"2016-04-14T05:58:46.737Z"
    },
    {  
-      "id":25,
+      "id":27,
       "tournament_id":1,
       "round_id":7,
       "region_id":4,
@@ -440,11 +440,11 @@
       "team2_id":106,
       "weight":0,
       "winner_id":329,
-      "created_at":"2016-04-13T00:16:52.803Z",
-      "updated_at":"2016-04-13T00:16:52.803Z"
+      "created_at":"2016-04-14T05:58:46.735Z",
+      "updated_at":"2016-04-14T05:58:46.735Z"
    },
    {  
-      "id":24,
+      "id":26,
       "tournament_id":1,
       "round_id":7,
       "region_id":3,
@@ -452,11 +452,11 @@
       "team2_id":37,
       "weight":7,
       "winner_id":217,
-      "created_at":"2016-04-13T00:15:57.403Z",
-      "updated_at":"2016-04-13T00:15:57.403Z"
+      "created_at":"2016-04-14T05:58:46.733Z",
+      "updated_at":"2016-04-14T05:58:46.733Z"
    },
    {  
-      "id":23,
+      "id":25,
       "tournament_id":1,
       "round_id":7,
       "region_id":3,
@@ -464,11 +464,11 @@
       "team2_id":326,
       "weight":6,
       "winner_id":326,
-      "created_at":"2016-04-13T00:15:22.643Z",
-      "updated_at":"2016-04-13T00:15:22.643Z"
+      "created_at":"2016-04-14T05:58:46.732Z",
+      "updated_at":"2016-04-14T05:58:46.732Z"
    },
    {  
-      "id":22,
+      "id":24,
       "tournament_id":1,
       "round_id":7,
       "region_id":3,
@@ -476,11 +476,11 @@
       "team2_id":105,
       "weight":5,
       "winner_id":290,
-      "created_at":"2016-04-13T00:15:01.462Z",
-      "updated_at":"2016-04-13T00:15:01.462Z"
+      "created_at":"2016-04-14T05:58:46.730Z",
+      "updated_at":"2016-04-14T05:58:46.730Z"
    },
    {  
-      "id":21,
+      "id":23,
       "tournament_id":1,
       "round_id":7,
       "region_id":3,
@@ -488,11 +488,11 @@
       "team2_id":209,
       "weight":4,
       "winner_id":209,
-      "created_at":"2016-04-13T00:14:12.125Z",
-      "updated_at":"2016-04-13T00:14:12.125Z"
+      "created_at":"2016-04-14T05:58:46.728Z",
+      "updated_at":"2016-04-14T05:58:46.728Z"
    },
    {  
-      "id":20,
+      "id":22,
       "tournament_id":1,
       "round_id":7,
       "region_id":3,
@@ -500,11 +500,11 @@
       "team2_id":313,
       "weight":3,
       "winner_id":73,
-      "created_at":"2016-04-13T00:13:24.255Z",
-      "updated_at":"2016-04-13T00:13:24.255Z"
+      "created_at":"2016-04-14T05:58:46.727Z",
+      "updated_at":"2016-04-14T05:58:46.727Z"
    },
    {  
-      "id":19,
+      "id":21,
       "tournament_id":1,
       "round_id":7,
       "region_id":3,
@@ -512,11 +512,11 @@
       "team2_id":350,
       "weight":2,
       "winner_id":350,
-      "created_at":"2016-04-13T00:12:41.943Z",
-      "updated_at":"2016-04-13T00:12:41.943Z"
+      "created_at":"2016-04-14T05:58:46.725Z",
+      "updated_at":"2016-04-14T05:58:46.725Z"
    },
    {  
-      "id":18,
+      "id":20,
       "tournament_id":1,
       "round_id":7,
       "region_id":3,
@@ -524,11 +524,11 @@
       "team2_id":50,
       "weight":1,
       "winner_id":245,
-      "created_at":"2016-04-13T00:12:24.459Z",
-      "updated_at":"2016-04-13T00:12:24.459Z"
+      "created_at":"2016-04-14T05:58:46.724Z",
+      "updated_at":"2016-04-14T05:58:46.724Z"
    },
    {  
-      "id":17,
+      "id":19,
       "tournament_id":1,
       "round_id":7,
       "region_id":3,
@@ -536,11 +536,11 @@
       "team2_id":112,
       "weight":0,
       "winner_id":221,
-      "created_at":"2016-04-13T00:11:42.038Z",
-      "updated_at":"2016-04-13T00:11:42.038Z"
+      "created_at":"2016-04-14T05:58:46.722Z",
+      "updated_at":"2016-04-14T05:58:46.722Z"
    },
    {  
-      "id":16,
+      "id":18,
       "tournament_id":1,
       "round_id":7,
       "region_id":2,
@@ -548,11 +548,11 @@
       "team2_id":336,
       "weight":7,
       "winner_id":349,
-      "created_at":"2016-04-13T00:11:18.030Z",
-      "updated_at":"2016-04-13T00:11:18.030Z"
+      "created_at":"2016-04-14T05:58:46.720Z",
+      "updated_at":"2016-04-14T05:58:46.720Z"
    },
    {  
-      "id":15,
+      "id":17,
       "tournament_id":1,
       "round_id":7,
       "region_id":2,
@@ -560,11 +560,11 @@
       "team2_id":227,
       "weight":6,
       "winner_id":345,
-      "created_at":"2016-04-13T00:11:00.790Z",
-      "updated_at":"2016-04-13T00:11:00.790Z"
+      "created_at":"2016-04-14T05:58:46.719Z",
+      "updated_at":"2016-04-14T05:58:46.719Z"
    },
    {  
-      "id":14,
+      "id":16,
       "tournament_id":1,
       "round_id":7,
       "region_id":2,
@@ -572,11 +572,11 @@
       "team2_id":279,
       "weight":5,
       "winner_id":279,
-      "created_at":"2016-04-13T00:10:43.845Z",
-      "updated_at":"2016-04-13T00:10:43.845Z"
+      "created_at":"2016-04-14T05:58:46.717Z",
+      "updated_at":"2016-04-14T05:58:46.717Z"
    },
    {  
-      "id":13,
+      "id":15,
       "tournament_id":1,
       "round_id":7,
       "region_id":2,
@@ -584,11 +584,11 @@
       "team2_id":168,
       "weight":4,
       "winner_id":213,
-      "created_at":"2016-04-13T00:09:41.293Z",
-      "updated_at":"2016-04-13T00:09:41.293Z"
+      "created_at":"2016-04-14T05:58:46.715Z",
+      "updated_at":"2016-04-14T05:58:46.715Z"
    },
    {  
-      "id":12,
+      "id":14,
       "tournament_id":1,
       "round_id":7,
       "region_id":2,
@@ -596,11 +596,11 @@
       "team2_id":281,
       "weight":3,
       "winner_id":137,
-      "created_at":"2016-04-13T00:09:21.471Z",
-      "updated_at":"2016-04-13T00:09:21.471Z"
+      "created_at":"2016-04-14T05:58:46.714Z",
+      "updated_at":"2016-04-14T05:58:46.714Z"
    },
    {  
-      "id":11,
+      "id":13,
       "tournament_id":1,
       "round_id":7,
       "region_id":2,
@@ -608,11 +608,11 @@
       "team2_id":48,
       "weight":2,
       "winner_id":122,
-      "created_at":"2016-04-13T00:09:06.033Z",
-      "updated_at":"2016-04-13T00:09:06.033Z"
+      "created_at":"2016-04-14T05:58:46.712Z",
+      "updated_at":"2016-04-14T05:58:46.712Z"
    },
    {  
-      "id":10,
+      "id":12,
       "tournament_id":1,
       "round_id":7,
       "region_id":2,
@@ -620,11 +620,11 @@
       "team2_id":233,
       "weight":1,
       "winner_id":233,
-      "created_at":"2016-04-13T00:08:48.500Z",
-      "updated_at":"2016-04-13T00:08:48.500Z"
+      "created_at":"2016-04-14T05:58:46.711Z",
+      "updated_at":"2016-04-14T05:58:46.711Z"
    },
    {  
-      "id":9,
+      "id":11,
       "tournament_id":1,
       "round_id":7,
       "region_id":2,
@@ -632,11 +632,11 @@
       "team2_id":89,
       "weight":0,
       "winner_id":197,
-      "created_at":"2016-04-13T00:08:31.178Z",
-      "updated_at":"2016-04-13T00:08:31.178Z"
+      "created_at":"2016-04-14T05:58:46.709Z",
+      "updated_at":"2016-04-14T05:58:46.709Z"
    },
    {  
-      "id":8,
+      "id":10,
       "tournament_id":1,
       "round_id":7,
       "region_id":1,
@@ -644,11 +644,11 @@
       "team2_id":19,
       "weight":0,
       "winner_id":133,
-      "created_at":"2016-04-13T00:04:59.702Z",
-      "updated_at":"2016-04-13T00:04:59.702Z"
+      "created_at":"2016-04-14T05:58:46.708Z",
+      "updated_at":"2016-04-14T05:58:46.708Z"
    },
    {  
-      "id":7,
+      "id":9,
       "tournament_id":1,
       "round_id":7,
       "region_id":1,
@@ -656,11 +656,11 @@
       "team2_id":59,
       "weight":1,
       "winner_id":59,
-      "created_at":"2016-04-13T00:04:59.702Z",
-      "updated_at":"2016-04-13T00:04:59.702Z"
+      "created_at":"2016-04-14T05:58:46.706Z",
+      "updated_at":"2016-04-14T05:58:46.706Z"
    },
    {  
-      "id":6,
+      "id":8,
       "tournament_id":1,
       "round_id":7,
       "region_id":1,
@@ -668,11 +668,11 @@
       "team2_id":266,
       "weight":2,
       "winner_id":160,
-      "created_at":"2016-04-13T00:04:59.702Z",
-      "updated_at":"2016-04-13T00:04:59.702Z"
+      "created_at":"2016-04-14T05:58:46.704Z",
+      "updated_at":"2016-04-14T05:58:46.704Z"
    },
    {  
-      "id":5,
+      "id":7,
       "tournament_id":1,
       "round_id":7,
       "region_id":1,
@@ -680,11 +680,11 @@
       "team2_id":109,
       "weight":3,
       "winner_id":109,
-      "created_at":"2016-04-13T00:04:59.702Z",
-      "updated_at":"2016-04-13T00:04:59.702Z"
+      "created_at":"2016-04-14T05:58:46.703Z",
+      "updated_at":"2016-04-14T05:58:46.703Z"
    },
    {  
-      "id":4,
+      "id":6,
       "tournament_id":1,
       "round_id":7,
       "region_id":1,
@@ -692,11 +692,11 @@
       "team2_id":342,
       "weight":4,
       "winner_id":342,
-      "created_at":"2016-04-13T00:04:59.702Z",
-      "updated_at":"2016-04-13T00:04:59.702Z"
+      "created_at":"2016-04-14T05:58:46.702Z",
+      "updated_at":"2016-04-14T05:58:46.702Z"
    },
    {  
-      "id":3,
+      "id":5,
       "tournament_id":1,
       "round_id":7,
       "region_id":1,
@@ -704,11 +704,11 @@
       "team2_id":33,
       "weight":5,
       "winner_id":166,
-      "created_at":"2016-04-13T00:04:59.687Z",
-      "updated_at":"2016-04-13T00:04:59.687Z"
+      "created_at":"2016-04-14T05:58:46.700Z",
+      "updated_at":"2016-04-14T05:58:46.700Z"
    },
    {  
-      "id":2,
+      "id":4,
       "tournament_id":1,
       "round_id":7,
       "region_id":1,
@@ -716,11 +716,11 @@
       "team2_id":284,
       "weight":6,
       "winner_id":125,
-      "created_at":"2016-04-13T00:04:59.687Z",
-      "updated_at":"2016-04-13T00:04:59.687Z"
+      "created_at":"2016-04-14T05:58:46.699Z",
+      "updated_at":"2016-04-14T05:58:46.699Z"
    },
    {  
-      "id":1,
+      "id":3,
       "tournament_id":1,
       "round_id":7,
       "region_id":1,
@@ -728,7 +728,31 @@
       "team2_id":311,
       "weight":7,
       "winner_id":328,
-      "created_at":"2016-04-13T00:04:59.687Z",
-      "updated_at":"2016-04-13T00:04:59.687Z"
+      "created_at":"2016-04-14T05:58:46.697Z",
+      "updated_at":"2016-04-14T05:58:46.697Z"
+   },
+   {  
+      "id":2,
+      "tournament_id":1,
+      "round_id":4,
+      "region_id":1,
+      "team_id":133,
+      "team2_id":328,
+      "weight":0,
+      "winner_id":328,
+      "created_at":"2016-04-14T05:58:46.690Z",
+      "updated_at":"2016-04-14T05:58:46.690Z"
+   },
+   {  
+      "id":1,
+      "tournament_id":1,
+      "round_id":3,
+      "region_id":null,
+      "team_id":197,
+      "team2_id":282,
+      "weight":0,
+      "winner_id":197,
+      "created_at":"2016-04-14T05:58:46.687Z",
+      "updated_at":"2016-04-14T05:58:46.687Z"
    }
 ]

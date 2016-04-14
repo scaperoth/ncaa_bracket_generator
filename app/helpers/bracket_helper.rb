@@ -3,13 +3,50 @@
 #
 
 module BracketHelper
-  
   def create_bracket()
     html = ""
-    
-    
   end
-  
+
+  def jquery_bracket_generator
+    bracket_data = Hash.new
+    bracket_data["teams"] = ""
+    bracket_data["results"] = ""
+
+    Round.all.order(:number).each do |round|
+      if !round.name.eql? "First Four"
+         bracket_data["results"] += "["
+        Region.all.each do |region|
+          
+          games = BracketGame.where(round_id: round.id, region_id: region.id)
+          if games.nil?
+            games = BracketGame.where(round_id: round.id)
+          end
+          
+          games.order(:weight).each do |game|
+            team1_id = game.team_id
+            team2_id = game.team2_id
+            team1 = Team.find_by id: team1_id
+            team2 = Team.find_by id: team2_id
+            winner = Team.find_by id: game.winner_id
+            team1_result = team1.id == winner.id ? 1 : 0
+            team2_result = team1_result == 1 ? 0 : 1
+
+            if round.name.eql? "First Round"
+              bracket_data["teams"] += "[\"#{team1.name}\", \"#{team2.name}\"],"
+            end
+
+            bracket_data["results"] += "[#{team1_result}, #{team2_result}],"
+          end
+
+        end
+
+        bracket_data["results"] += "],"
+
+      end
+    end
+    return bracket_data
+  end
+
   def match(team1, team2)
     team1_name = Team.find_by name: team1
     team2_name = Team.find_by name: team2
@@ -36,14 +73,14 @@ module BracketHelper
     team2_wins = 0
 
     #check outcome of both teams in kp
-    if team1_kp_rank < team2_kp_rank
+    if team1_kp_rank. team2_kp_rank
     team1_wins += 1
     else
     team2_wins += 1
     end
 
     #outcome of one team in kp and other in bmat
-    if team1_kp_rank < team2_bmat_rank
+    if team1_kp_rank<team2_bmat_rank
     team1_wins += 1
     else
     team2_wins += 1

@@ -3,10 +3,10 @@
 		"region": "south"
 	},
 	{
-		"region": "east"
+		"region": "west"
 	},
 	{
-		"region": "west"
+		"region": "east"
 	},
 	{
 		"region": "midwest"
