@@ -4,14 +4,14 @@
 <% tournament = Tournament.find_by year: tournament_year%>
 <h1><%= tournament.name %></h1>
 
-<% Region.all.each do |region| %> 
-
- 	<h2><%= region.name %></h2>
-<main class="tournament">
-	<% Round.all.order(:number).each do |round| %>
-		<% if !round.name.eql? "First Four" and !round.name.eql? "Championship"  %>
-			<ul class="round round-<%= round.id %>">
-			<%
+<% 
+team_list = ""
+team_results = ""
+Round.all.order(:number).each do |round|
+	if !round.name.eql? "First Four" 
+		team_results += "[" 
+	Region.all.each do |region| 
+		
        		games = BracketGame.where(round_id: round.id, region_id: region.id) 
 	       	if games.nil? 
 	      	 	games = BracketGame.where(round_id: round.id)   
@@ -22,124 +22,54 @@
 	      		team2_id = game.team2_id 
 	      		team1 = Team.find_by id: team1_id
 	      		team2 = Team.find_by id: team2_id
-	      		
-	      		%>
-	      		<li class="spacer">&nbsp;</li>
+				winner = Team.find_by id: game.winner_id
+				team1_result = team1.id == winner.id ? 1 : 0 
+				team2_result = team1_result == 1 ? 0 : 1 
 				
-				<li class="game game-top <%= team1_id == game.winner_id ? "winner" : "" %> " ><%= team1.name %></li>
-				<li class="game game-spacer">&nbsp;</li>
-				<li class="game game-bottom <%= team2_id == game.winner_id ? "winner" : "" %>"><%= team2.name %> </li>
-			<% end %>
-				<li class="spacer">&nbsp;</li>
-			</ul>
-		<% end %>
-   	<% end %>
-	</main>
+				if round.name.eql? "First Round"
+					team_list += "[\"#{team1.name}\", \"#{team2.name}\"],"
+				end
+				
+				team_results += "[#{team1_result}, #{team2_result}]," 
+			end
+			
+   	end 
    	
-<% end %>
-<main class="tournament">
+	team_results += "],"
 	
+	end 
+end 
+
+
+%>
+Team List:
+<%= team_list.html_safe %>
+<p></p>
+Team Results:
+<%= team_results.html_safe %>
+
+<script>
 	
-	<ul class="round round-1">
-		<li class="spacer">&nbsp;</li>
-		
-		<li class="game game-top winner">Lousville <span>79</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom ">NC A&T <span>48</span></li>
+var bracket = {
+  teams : [
+    <%= team_list.html_safe %>
+  ],
+  results: [
+  	<%= team_results.html_safe %>
+  ]
+}
+ 
+$(function() {
+  $('div#noGrandFinalComeback .demo').bracket({
+    skipGrandFinalComeback: true,
+    init: bracket})
+})
+	
+</script>
 
-		<li class="spacer">&nbsp;</li>
+<div id="noGrandFinalComeback">
+	<div class="demo">
 		
-		<li class="game game-top winner">Colo St <span>84</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom ">Missouri <span>72</span></li>
+	</div>
+</div>
 
-		<li class="spacer">&nbsp;</li>
-		
-		<li class="game game-top ">Oklahoma St <span>55</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom winner">Oregon <span>68</span></li>
-
-		<li class="spacer">&nbsp;</li>
-		
-		<li class="game game-top winner">Saint Louis <span>64</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom ">New Mexico St <span>44</span></li>
-
-		<li class="spacer">&nbsp;</li>
-		
-		<li class="game game-top winner">Memphis <span>54</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom ">St Mary's <span>52</span></li>
-
-		<li class="spacer">&nbsp;</li>
-		
-		<li class="game game-top winner">Mich St <span>65</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom ">Valparaiso <span>54</span></li>
-
-		<li class="spacer">&nbsp;</li>
-		
-		<li class="game game-top winner">Creighton <span>67</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom ">Cincinnati <span>63</span></li>
-
-		<li class="spacer">&nbsp;</li>
-		
-		<li class="game game-top winner">Duke <span>73</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom ">Albany <span>61</span></li>
-
-		<li class="spacer">&nbsp;</li>
-	</ul>
-	<ul class="round round-2">
-		<li class="spacer">&nbsp;</li>
-		
-		<li class="game game-top winner">Lousville <span>82</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom ">Colo St <span>56</span></li>
-
-		<li class="spacer">&nbsp;</li>
-		
-		<li class="game game-top winner">Oregon <span>74</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom ">Saint Louis <span>57</span></li>
-
-		<li class="spacer">&nbsp;</li>
-		
-		<li class="game game-top ">Memphis <span>48</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom winner">Mich St <span>70</span></li>
-
-		<li class="spacer">&nbsp;</li>
-		
-		<li class="game game-top ">Creighton <span>50</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom winner">Duke <span>66</span></li>
-
-		<li class="spacer">&nbsp;</li>
-	</ul>
-	<ul class="round round-3">
-		<li class="spacer">&nbsp;</li>
-		
-		<li class="game game-top winner">Lousville <span>77</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom ">Oregon <span>69</span></li>
-
-		<li class="spacer">&nbsp;</li>
-		
-		<li class="game game-top ">Mich St <span>61</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom winner">Duke <span>71</span></li>
-
-		<li class="spacer">&nbsp;</li>
-	</ul>
-	<ul class="round round-4">
-		<li class="spacer">&nbsp;</li>
-		
-		<li class="game game-top winner">Lousville <span>85</span></li>
-		<li class="game game-spacer">&nbsp;</li>
-		<li class="game game-bottom ">Duke <span>63</span></li>
-		
-		<li class="spacer">&nbsp;</li>
-	</ul>		
-</main>
