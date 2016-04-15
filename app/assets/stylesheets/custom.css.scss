@@ -1,0 +1,12 @@
+
+@import "bootstrap_configuration";
+
+.team{
+  &.win .label{
+    color: $text-color !important;
+  }
+  &.lose .label{
+    color: lighten($text-color, 30%) !important;
+  }
+}
+  
