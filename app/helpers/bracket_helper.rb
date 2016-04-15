@@ -36,6 +36,7 @@ module BracketHelper
             end
 
             bracket_data["results"] += "[#{team1_result}, #{team2_result}],"
+            #bracket_data["results"] += "[0,0],"
           end
 
         end
