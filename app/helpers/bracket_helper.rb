@@ -5,7 +5,7 @@
 module BracketHelper
   
   # creates a bracket from given teams
-  def create_bracket(games, guess_bracket = false)
+  def create_bracket_round(games, guess_bracket = false)
     current_round = 0
     current_region = 0
     matches = ""
@@ -55,16 +55,9 @@ module BracketHelper
       #add the team container to the list of all matches 
       matches += content_tag :div, teamContainer, class: "match", style: "height:"+height.to_s + "px" 
       
-      if current_round < round.number 
-        #add all of the matches to the round and return the result
-        bracket += content_tag :div, matches.html_safe, class: "round " + round.name
-        matches = ""
-      end
-      
-      
-      current_region = game.region_id.to_f
-      current_round = round_number
     end
+    
+    bracket = content_tag :div, matches.html_safe, class: "round"
     
     return bracket.html_safe
   end

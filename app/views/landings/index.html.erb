@@ -9,9 +9,10 @@
 	<div class= "bracketspace">
 		<div class="jQBracket lr">
 			<div class="bracket" style="height: <%= 8 * 64 %>">
-				<% games = BracketGame.joins(:round).order("bracket_games.region_id, rounds.number, bracket_games.weight") %>
-				<%= create_bracket(games)%>
-					
+					<% Round.where.not(number: 0).order(:number).each do |round| %>
+						<% games = BracketGame.where(round_id: round.id).order(:region_id, :weight) %>
+						<%= create_bracket_round(games)%>
+					<% end %>
 			</div><!-- end bracket -->
 		</div><!-- end jq bracket -->
 	</div><!-- end bracketspace -->
