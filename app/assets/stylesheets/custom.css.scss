@@ -1,12 +1,20 @@
 
 @import "bootstrap_configuration";
-
-.team{
-  &.win .label{
-    color: $text-color !important;
-  }
-  &.lose .label{
-    color: lighten($text-color, 30%) !important;
+$container-size: 200px;
+$bracket-size: 100%;
+.jQBracket{
+  width: $bracket-size;
+}
+.round{
+  width: $container-size !important;
+  .team{
+    width:$container-size !important;
+    &.win .label{
+      color: $text-color !important;
+    }
+    &.lose .label{
+      color: lighten($text-color, 30%) !important;
+    }
   }
 }
   

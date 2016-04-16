@@ -3,54 +3,100 @@
 #
 
 module BracketHelper
-  def create_bracket()
-    html = ""
-  end
-
-  def jquery_bracket_generator
-    bracket_data = Hash.new
-    bracket_data["teams"] = ""
-    bracket_data["results"] = ""
-
-    Round.all.order(:number).each do |round|
-      if !round.name.eql? "First Four"
-         bracket_data["results"] += "["
-        Region.all.each do |region|
-          
-          games = BracketGame.where(round_id: round.id, region_id: region.id)
-          if games.nil?
-            games = BracketGame.where(round_id: round.id)
-          end
-          
-          games.order(:weight).each do |game|
-            team1_id = game.team_id
-            team2_id = game.team2_id
-            team1 = Team.find_by id: team1_id
-            team2 = Team.find_by id: team2_id
-            winner = Team.find_by id: game.winner_id
-            team1_result = team1.id == winner.id ? 1 : 0
-            team2_result = team1_result == 1 ? 0 : 1
-
-            if round.name.eql? "First Round"
-              bracket_data["teams"] += "[\"#{team1.name}\", \"#{team2.name}\"],"
-            end
-
-            bracket_data["results"] += "[#{team1_result}, #{team2_result}],"
-            #bracket_data["results"] += "[0,0],"
-          end
-
-        end
-
-        bracket_data["results"] += "],"
-
+  
+  # creates a bracket from given teams
+  def create_bracket(games, guess_bracket = false)
+    current_round = 0
+    current_region = 0
+    matches = ""
+    bracket = ""
+    
+    #control the directions of the connectors
+    connector1_direction = "top"  
+    connector2_direction = "bottom" 
+    
+    #loop through the games
+    games.each do |game|
+      
+      #swap connector directions on each pass
+      connector1_direction == "top" ? connector1_direction = "bottom" : connector1_direction = "top" 
+      connector2_direction == "bottom" ? connector2_direction = "top" : connector2_direction = "bottom"
+      
+      round = Round.find_by id: game.round_id
+      
+      #the round number expressed as a float
+      round_number = round.number.to_f
+      
+      #the height of each match
+      height = 2 ** (round_number-1) * 64
+      
+      #get the team data
+      team1 = Team.find_by id: game.team_id
+      team2 = Team.find_by id: game.team2_id
+      
+      if guess_bracket
+        team_blocks = create_team_block(team1, team2, match(team1, team2))
+      else
+        team_blocks = create_team_block(team1, team2, game.winner)
       end
+      
+      #create the connectors as long as it's not the final round
+      if !round.name.eql? "Championship"
+        connector = content_tag :div, class: "connector", style: "height: #{height/2}px; width: 20px; right: -22px; #{connector2_direction}: #{13 + 27/2}px; border-#{connector1_direction}-style: none;" do
+          content_tag("div", "", class: "connector", style: "width: 20px; right: -20px; #{connector1_direction}: 0px;")
+        end
+      else
+        #if it is the final round, just return a blank string
+        connector = ""
+      end
+      
+      #add the previous htm to the team container
+      teamContainer = content_tag :div, team_blocks+connector, class: "teamContainer", style: "top: #{(height-53)/2}px"
+      #add the team container to the list of all matches 
+      matches += content_tag :div, teamContainer, class: "match", style: "height:"+height.to_s + "px" 
+      
+      if current_round < round.number 
+        #add all of the matches to the round and return the result
+        bracket += content_tag :div, matches.html_safe, class: "round " + round.name
+        matches = ""
+      end
+      
+      
+      current_region = game.region_id.to_f
+      current_round = round_number
     end
-    return bracket_data
+    
+    return bracket.html_safe
   end
-
+  
+  def create_team_block(team1, team2, winner)
+    
+      #for both teams, create their block
+      team1_block = content_tag :div, class: "team " + (winner.id == team1.id ? "win": "lose"), "data-resultid"=> "team-#{team1.id}", "data-teamid" => "#{team1.id}" do
+        content_tag(:label, team1.name, class: "label")+
+        content_tag(:div, (winner.id == team1.id ? "1": "0"), class: "score", "data-resultid" => "result-#{team1.id}")
+      end
+      
+      team2_block = content_tag :div, class: "team " + (winner.id == team2.id ? "win": "lose"), "data-resultid"=> "team-#{team2.id}", "data-teamid" => "#{team2.id}"  do
+        content_tag(:label, team2.name, class: "label")+
+        content_tag(:div, (winner.id == team2.id ? "1": "0"), class: "score", "data-resultid" => "result-#{team2.id}")
+      end
+      
+      team_block = team1_block + team2_block
+      
+  end
+  
+  def generate_guess_bracket
+      team_block = ""
+      
+      games = BracketGame.where(round_id: 1).order(:region_id, :round_id, :weight)
+      
+      return team_block
+  end
+  
   def match(team1, team2)
-    team1_name = Team.find_by name: team1
-    team2_name = Team.find_by name: team2
+    #team1_name = Team.find_by name: team1
+    #team2_name = Team.find_by name: team2
 
     #team1_kp_name = team1
     #team2_kp_name = team2
@@ -58,10 +104,10 @@ module BracketHelper
     #team2_bmat_name = team2
 
     #set active recrod values
-    team1_kp = KenpomTeam.find(team1_name.kenpom_team_id)
-    team2_kp = KenpomTeam.find(team2_name.kenpom_team_id)
-    team1_bmat = BmatrixTeam.find(team1_name.bmatrix_team_id)
-    team2_bmat = BmatrixTeam.find(team2_name.bmatrix_team_id)
+    team1_kp = KenpomStat.find(team1.kenpom_team_id)
+    team2_kp = KenpomStat.find(team2.kenpom_team_id)
+    team1_bmat = BmatrixStat.find(team1.bmatrix_team_id)
+    team2_bmat = BmatrixStat.find(team2.bmatrix_team_id)
 
     #get rank of each team in each source
     team1_kp_rank = team1_kp.rank
@@ -74,7 +120,7 @@ module BracketHelper
     team2_wins = 0
 
     #check outcome of both teams in kp
-    if team1_kp_rank. team2_kp_rank
+    if team1_kp_rank < team2_kp_rank
     team1_wins += 1
     else
     team2_wins += 1
@@ -103,9 +149,9 @@ module BracketHelper
 
     #return the active record of the winner
     if team1_wins > team2_wins
-    return team1_kp
+    return team1
     else
-    return team2_kp
+    return team2
     end
 
   end
