@@ -15,6 +15,8 @@ module BracketHelper
     connector1_direction = "top"  
     connector2_direction = "bottom" 
     
+    games = JSON.parse(games)
+    
     #loop through the games
     games.each do |game|
       
@@ -22,7 +24,7 @@ module BracketHelper
       connector1_direction == "top" ? connector1_direction = "bottom" : connector1_direction = "top" 
       connector2_direction == "bottom" ? connector2_direction = "top" : connector2_direction = "bottom"
       
-      round = Round.find_by id: game.round_id
+      round = Round.find_by id: game["round_id"]
       
       #the round number expressed as a float
       round_number = round.number.to_f
@@ -31,13 +33,14 @@ module BracketHelper
       height = 2 ** (round_number-1) * 64
       
       #get the team data
-      team1 = Team.find_by id: game.team_id
-      team2 = Team.find_by id: game.team2_id
+      team1 = Team.find_by id: game["team_id"]
+      team2 = Team.find_by id: game["team2_id"]
+      winner = Team.find_by id: game["winner_id"]
       
       if guess_bracket
         team_blocks = create_team_block(team1, team2, match(team1, team2))
       else
-        team_blocks = create_team_block(team1, team2, game.winner)
+        team_blocks = create_team_block(team1, team2, winner)
       end
       
       #create the connectors as long as it's not the final round
@@ -80,11 +83,59 @@ module BracketHelper
   end
   
   def generate_guess_bracket
-      team_block = ""
+      game_results = []
+      next_round_teams = {}
+      next_round_games = []
+      team_appendix = ""
       
-      games = BracketGame.where(round_id: 1).order(:region_id, :round_id, :weight)
+      #[{"id":11,"tournament_id":1,"round_id":7,"region_id":1,"team_id":133,"team1_score":null,"team2_id":19,"team2_score":null,"weight":0,"winner_id":133,"created_at":"2016-04-17T02:47:58.526Z","updated_at":"2016-04-17T02:47:58.526Z"},
+      # {"id":10,"tournament_id":1,"round_id":7,"region_id":1,"team_id":56,"team1_score":null,"team2_id":59,"team2_score":null,"weight":1,"winner_id":59,"created_at":"2016-04-17T02:47:58.526Z","updated_at":"2016-04-17T02:47:58.526Z"}]
       
-      return team_block
+      #get first round results
+      Round.where.not(number: 0).order(:number).each do |round|
+        #concat (round.name+"</br>").html_safe
+        existing_games = JSON.parse(BracketGame.where(round_id: round.id).order(:region_id, :weight).to_json)
+        games = existing_games
+        
+        if round.number > 1
+          games = next_round_games
+          next_round_games = []
+          #concat games
+        end
+        
+        games.each do |game |  
+          
+          #concat (game["weight"].to_s+": ").html_safe
+          #concat (game["region_id"].to_s + "<br/>").html_safe
+          team1 = Team.find_by id: game["team_id"]
+          team2 = Team.find_by id: game["team2_id"]
+          winner = match(team1,team2)
+          
+          game_results.push({"round_id": round.id, 
+            "region_id": game["region_id"],
+            "weight": game["weight"],
+            "team_id": team1.id,
+            "team2_id":team2.id,
+            "winner_id": winner.id
+            })
+          
+          next_round_teams["team"+team_appendix+"_id"] = winner.id
+          team_appendix = team_appendix.empty? ? "2" : ""
+          
+          if next_round_teams.length == 4
+            next_round_games.push(next_round_teams)
+            next_round_teams = {}
+            next
+          end
+          
+          if next_round_teams.length == 1
+            next_round_teams["weight"] = game["weight"]/2
+            next_round_teams["region_id"] = game["region_id"]
+          end
+        end
+      end
+      
+      game_results
   end
   
   def match(team1, team2)

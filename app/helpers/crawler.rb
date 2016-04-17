@@ -21,12 +21,12 @@ class Crawler
     
     current_year = Time.now.year.to_s
     
-    kenpom_url = "http://kenpom.com/index.php?y=#{year}"
-    bracket_matrix_url = "http://bracketmatrix.com/matrix_#{year}.html"
+    kenpom_url = @kp_url+"/index.php?y=#{year}"
+    bracket_matrix_url = @bmat_url+"/matrix_#{year}.html"
     
     if(current_year == year)
-      kenpom_url = "http://kenpom.com/"
-      bracket_matrix_url = "http://bracketmatrix.com"
+      kenpom_url = @kp_url
+      bracket_matrix_url = @bmat_url
     end
     
     if which_url.eql? "kenpom"
@@ -54,7 +54,8 @@ class Crawler
 
     db_columns = ["rank", "name", "conf", "avg_seed"]
     
-    doc = Nokogiri::HTML(open(url))
+    #doc = Nokogiri::HTML(open(url))
+    doc = Nokogiri::HTML(File.open("#{Rails.root}/db/data/2016/bracketmatrix2016.html.erb"))
 
 
     #num_columns = (num_columns/num_rows) + 1
@@ -105,7 +106,8 @@ class Crawler
 
     # Fetch and parse HTML document
     #doc = Nokogiri::HTML(open(@url))
-    doc = Nokogiri::HTML(open(url))
+    #doc = Nokogiri::HTML(open(url))
+    doc = Nokogiri::HTML(File.open("#{Rails.root}/db/data/2016/kenpom2016.html.erb"))
 
     #get the columns and column names first
     doc.css('table thead:first-child tr:nth-child(2) th').each do |link|

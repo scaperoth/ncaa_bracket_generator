@@ -3,15 +3,25 @@
 <% tournament = Tournament.find_by year: tournament_year%>
 <h1><%= tournament.name %></h1>
 
+<%= generate_guess_bracket %>
 
-
+<div class="bracketspacecontainer">
+	<div class= "bracketspace">
+		<div class="jQBracket lr">
+			<div class="bracket" style="height: <%= 8 * 64 %>">
+						<%= create_bracket_round(generate_guess_bracket.to_json)%>
+			</div><!-- end bracket -->
+		</div><!-- end jq bracket -->
+	</div><!-- end bracketspace -->
+</div><!-- end bracketspacecontainer-->
+</br>
 <div class="bracketspacecontainer">
 	<div class= "bracketspace">
 		<div class="jQBracket lr">
 			<div class="bracket" style="height: <%= 8 * 64 %>">
 					<% Round.where.not(number: 0).order(:number).each do |round| %>
 						<% games = BracketGame.where(round_id: round.id).order(:region_id, :weight) %>
-						<%= create_bracket_round(games)%>
+						<%= create_bracket_round(games.to_json)%>
 					<% end %>
 			</div><!-- end bracket -->
 		</div><!-- end jq bracket -->
