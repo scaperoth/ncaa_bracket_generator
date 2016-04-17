@@ -15,6 +15,10 @@ $bracket-size: 100%;
     &.lose .label{
       color: lighten($text-color, 30%) !important;
     }
+    
+    &.false{
+      background: #d00!important;
+    }
   }
 }
   

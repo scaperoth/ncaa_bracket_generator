@@ -3,9 +3,11 @@
 #
 
 module BracketHelper
+  :generated_games
   
   # creates a bracket from given teams
   def create_bracket_round(games, guess_bracket = false)
+    generated_bracket = JSON.parse(generate_guess_bracket.to_json)
     current_round = 0
     current_region = 0
     matches = ""
@@ -18,8 +20,7 @@ module BracketHelper
     games = JSON.parse(games)
     
     #loop through the games
-    games.each do |game|
-      
+    games.each do |game, index|
       #swap connector directions on each pass
       connector1_direction == "top" ? connector1_direction = "bottom" : connector1_direction = "top" 
       connector2_direction == "bottom" ? connector2_direction = "top" : connector2_direction = "bottom"
@@ -32,16 +33,38 @@ module BracketHelper
       #the height of each match
       height = 2 ** (round_number-1) * 64
       
-      #get the team data
+      #get the corresponding bracket game generated from stats
+      generated_game = nil
+      
+      generated_bracket.collect{|generated_bracket_game|
+            
+            if generated_bracket_game["region_id"] == game["region_id"] and
+              generated_bracket_game["round_id"] == game["round_id"] and
+              generated_bracket_game["weight"] == game["weight"]
+              
+              generated_game = generated_bracket_game
+              #concat  (game["region_id"].to_s + " : " + game["round_id"].to_s+ " : " + game["weight"].to_s+"<br/>").html_safe
+              
+            end
+        }
+            #concat ("game: "+game.to_s+"</br>").html_safe
+            #concat ("generated_game: "+generated_game.to_s+"</br>").html_safe
+        
+      # get the team data from tournament
       team1 = Team.find_by id: game["team_id"]
       team2 = Team.find_by id: game["team2_id"]
       winner = Team.find_by id: game["winner_id"]
       
-      if guess_bracket
-        team_blocks = create_team_block(team1, team2, match(team1, team2))
-      else
-        team_blocks = create_team_block(team1, team2, winner)
-      end
+      # get the team data from statistics
+      generated_team1 = Team.find_by id: generated_game["team_id"]
+      generated_team2 = Team.find_by id: generated_game["team2_id"]
+      generated_winner = Team.find_by id: generated_game["winner_id"]
+      
+      team1_accurate= team1 == generated_team1 ? true : false
+      team2_accurate = team2 == generated_team2 ? true : false
+      winner_accurate = winner == generated_winner ? true : false
+      
+      team_blocks = create_team_block(team1, team2, winner, team1_accurate, team2_accurate, winner_accurate)
       
       #create the connectors as long as it's not the final round
       if !round.name.eql? "Championship"
@@ -65,15 +88,15 @@ module BracketHelper
     return bracket.html_safe
   end
   
-  def create_team_block(team1, team2, winner)
+  def create_team_block(team1, team2, winner, team1_accuracy = nil, team2_accuracy = nil, winner_accuracy = nil)
     
       #for both teams, create their block
-      team1_block = content_tag :div, class: "team " + (winner.id == team1.id ? "win": "lose"), "data-resultid"=> "team-#{team1.id}", "data-teamid" => "#{team1.id}" do
+      team1_block = content_tag :div, class: "team #{team1_accuracy} " + (winner.id == team1.id ? "win ": "lose"), "data-resultid"=> "team-#{team1.id}", "data-teamid" => "#{team1.id}" do
         content_tag(:label, team1.name, class: "label")+
         content_tag(:div, (winner.id == team1.id ? "1": "0"), class: "score", "data-resultid" => "result-#{team1.id}")
       end
       
-      team2_block = content_tag :div, class: "team " + (winner.id == team2.id ? "win": "lose"), "data-resultid"=> "team-#{team2.id}", "data-teamid" => "#{team2.id}"  do
+      team2_block = content_tag :div, class: "team #{team2_accuracy} " + (winner.id == team2.id ? "win": "lose"), "data-resultid"=> "team-#{team2.id}", "data-teamid" => "#{team2.id}"  do
         content_tag(:label, team2.name, class: "label")+
         content_tag(:div, (winner.id == team2.id ? "1": "0"), class: "score", "data-resultid" => "result-#{team2.id}")
       end
@@ -122,7 +145,23 @@ module BracketHelper
           next_round_teams["team"+team_appendix+"_id"] = winner.id
           team_appendix = team_appendix.empty? ? "2" : ""
           
+          #concat ("LAST: "+games.last.to_s+"</br>").html_safe
+          #concat ("GAME: "+game.to_s+"</br>").html_safe
+          #concat ("Equal: "+ (games.last == game).to_s+"</br>").html_safe
+          
           if next_round_teams.length == 4
+            
+            if round.number.to_i >= (Round.find_by name: "Elite Eight").number
+              next_round_teams["region_id"] = nil
+              next_round_teams["weight"] = games.last == game ? 1 : 0
+            else
+              next_round_teams["region_id"] = game["region_id"]
+            end
+            
+            if round.name == "Final Four" 
+              next_round_teams["weight"] = 0
+            end
+            
             next_round_games.push(next_round_teams)
             next_round_teams = {}
             next
@@ -130,12 +169,21 @@ module BracketHelper
           
           if next_round_teams.length == 1
             next_round_teams["weight"] = game["weight"]/2
-            next_round_teams["region_id"] = game["region_id"]
+            
+            if round.number.to_i >= (Round.find_by name: "Sweet 16").number
+              next_round_teams["weight"] = game["region_id"].to_i - 1
+            end
+            
+            if round.number.to_i >= (Round.find_by name: "Elite Eight").number
+              next_round_teams["region_id"] = nil
+            else
+              next_round_teams["region_id"] = game["region_id"]
+            end
           end
         end
       end
       
-      game_results
+      @generated_games = game_results
   end
   
   def match(team1, team2)
