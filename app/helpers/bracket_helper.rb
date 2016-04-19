@@ -3,7 +3,8 @@
 #
 
 module BracketHelper
-  :generated_games
+  @generated_games = nil
+  @percent_correct = 0
   
   # creates a bracket from given teams
   def create_bracket_round(games, guess_bracket = false)
@@ -12,6 +13,7 @@ module BracketHelper
     current_region = 0
     matches = ""
     bracket = ""
+    percent_correct = @percent_correct
     
     #control the directions of the connectors
     connector1_direction = "top"  
@@ -82,14 +84,21 @@ module BracketHelper
       matches += content_tag :div, teamContainer, class: "match", style: "height:"+height.to_s + "px" 
       
     end
-    
+    percent_correct2 = percent_correct/BracketGame.all.count
+    #concat ("<h2>"+@percent_correct.to_s+"</h2>").html_safe
     bracket = content_tag :div, matches.html_safe, class: "round"
     
     return bracket.html_safe
   end
   
   def create_team_block(team1, team2, winner, team1_accuracy = nil, team2_accuracy = nil, winner_accuracy = nil)
-    
+      percent_correct = @percent_correct
+      percent_correct += (team1_accuracy == false ? 1 : 0)
+      percent_correct += (team1_accuracy == false ? 1 : 0)
+      @percent_correct = percent_correct
+      
+      #concat ("<h2>"+@percent_correct.to_s+"</h2>").html_safe
+      
       #for both teams, create their block
       team1_block = content_tag :div, class: "team #{team1_accuracy} " + (winner.id == team1.id ? "win ": "lose"), "data-resultid"=> "team-#{team1.id}", "data-teamid" => "#{team1.id}" do
         content_tag(:label, team1.name, class: "label")+
@@ -269,7 +278,6 @@ module BracketHelper
           stats.merge!({team_name => {:kprank => team_kp.rank, :bmatrank => team_bmat.rank}})
         end
       end
-
     end
     print_stats(stats)
   end
