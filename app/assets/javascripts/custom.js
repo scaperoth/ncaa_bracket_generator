@@ -2,9 +2,11 @@
 $(document).ready(
 
   function() { 
-
-    $(".bracketspacecontainer").niceScroll().hide();
-
+	jQuery(document).ready(function(){
+	    jQuery('.bracketspacecontainer').scrollbar({
+	    	scrollStep: 100
+	    });
+	});
   }
 
 );
