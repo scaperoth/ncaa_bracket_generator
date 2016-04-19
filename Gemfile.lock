@@ -79,6 +79,7 @@ GEM
       sass (~> 3.2)
       thor
     builder (3.2.2)
+    byebug (8.2.4)
     choice (0.2.0)
     coderay (1.1.1)
     coffee-rails (4.0.1)
@@ -259,6 +260,7 @@ DEPENDENCIES
   bootstrap-sass (= 3.3.5)
   bootstrap-sass-extras
   bundler
+  byebug
   coffee-rails (~> 4.0.0)
   delayed_job_active_record
   devise!
