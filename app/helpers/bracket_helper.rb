@@ -80,13 +80,12 @@ module BracketHelper
           team2_accurate = (team2 == generated_team2) ? true : false
           winner_accurate = (winner == generated_winner) ? true : false
           
-          
           if with_comparison
             
             if !winner_accurate
               num_wrong_guesses += 1
             end
-            team_blocks = create_team_block(team1, team2, winner, team1_accurate, team2_accurate, winner_accurate)
+            team_blocks = create_team_block(team1, team2, winner,generated_winner)
           else
             team_blocks = create_team_block(generated_team1, generated_team2, generated_winner)
           end
@@ -122,19 +121,35 @@ module BracketHelper
     return bracket.html_safe
   end
   
-  def create_team_block(team1, team2, winner, team1_accuracy = nil, team2_accuracy = nil, winner_accuracy = nil)
+  def create_team_block(team1, team2, winner, generated_winner = nil)
       
       #concat ("<h2>"+@percent_correct.to_s+"</h2>").html_safe
+      team1_winner = winner.id == team1.id
+      team2_winner = winner.id == team2.id
+      team1_winner_class = team1_winner  ? "win ": "lose"
+      team2_winner_class = team2_winner  ? "win ": "lose"
+      team1_winner_score = team1_winner  ? "W ": "L"
+      team2_winner_score = team2_winner ? "W ": "L"
       
-      #for both teams, create their block
-      team1_block = content_tag :div, class: "team #{team1_accuracy} " + (winner.id == team1.id ? "win ": "lose"), "data-resultid"=> "team-#{team1.id}", "data-teamid" => "#{team1.id}" do
-        content_tag(:label, team1.name, class: "label")+
-        content_tag(:div, (winner.id == team1.id ? "1": "0"), class: "score", "data-resultid" => "result-#{team1.id}")
+      team1_winner_accurate = true
+      team2_winner_accurate = true
+      
+      if !generated_winner.nil?
+        team1_winner_accurate = generated_winner == winner ? true : (team1 == generated_winner ? true : false )
+        team2_winner_accurate = generated_winner == winner ? true : (team2 == generated_winner ? true : false)  
+      else
+        
       end
       
-      team2_block = content_tag :div, class: "team #{team2_accuracy} " + (winner.id == team2.id ? "win": "lose"), "data-resultid"=> "team-#{team2.id}", "data-teamid" => "#{team2.id}"  do
+      #for both teams, create their block
+      team1_block = content_tag :div, class: "team #{team1_winner_accurate} " + team1_winner_class, "data-resultid"=> "team-#{team1.id}", "data-teamid" => "#{team1.id}" do
+        content_tag(:label, team1.name, class: "label")+
+        content_tag(:div, team1_winner_score, class: "score", "data-resultid" => "result-#{team1.id}")
+      end
+      
+      team2_block = content_tag :div, class: "team #{team2_winner_accurate} " + team2_winner_class, "data-resultid"=> "team-#{team2.id}", "data-teamid" => "#{team2.id}"  do
         content_tag(:label, team2.name, class: "label")+
-        content_tag(:div, (winner.id == team2.id ? "1": "0"), class: "score", "data-resultid" => "result-#{team2.id}")
+        content_tag(:div, team2_winner_score, class: "score", "data-resultid" => "result-#{team2.id}")
       end
       
       team_block = team1_block + team2_block

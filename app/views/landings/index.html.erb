@@ -1,7 +1,8 @@
 <% tournament_year = "2016" %>
 <% bracket_helper = BracketHelper %>
 <% tournament = Tournament.find_by year: tournament_year%>
-<h1><%= tournament.name %></h1>
+<h1><%= tournament.name %> Generated Bracket</h1>
+<p>Bracket generated using data, with permission, from <a href="http://kenpom.com" target="_blank">kenpom.com</a> and <a href="http://bracketmatrix.com" target="_blank">bracketmatrix.com</a></p>
 
 <div class="bracketspacecontainer">
 	<div class= "bracketspace">
