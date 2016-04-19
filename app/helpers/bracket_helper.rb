@@ -85,7 +85,7 @@ module BracketHelper
             if !winner_accurate
               num_wrong_guesses += 1
             end
-            team_blocks = create_team_block(team1, team2, winner,generated_winner)
+            team_blocks = create_team_block(generated_team1, generated_team2, generated_winner,winner)
           else
             team_blocks = create_team_block(generated_team1, generated_team2, generated_winner)
           end

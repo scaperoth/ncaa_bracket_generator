@@ -1,14 +1,29 @@
 
 @import "bootstrap_configuration";
-$container-size: 200px;
+$container-size: 100px;
 $bracket-size: 100%;
+$font-size: .8;
+
 .jQBracket{
   width: $bracket-size;
+  float:left;
+  
+  .bracket{
+    float:left !important;
+    clear:right!important;
+    padding-left:20px;
+  }
 }
 .round{
   width: $container-size !important;
   .team{
     width:$container-size !important;
+    font-size: $font-size+em;
+    font-size: $font-size+vw;
+    .label {
+      position:absolute;
+      top:25%;
+    }
     &.win .label{
       color: $text-color !important;
     }
