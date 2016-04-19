@@ -1,39 +1,49 @@
 
 @import "bootstrap_configuration";
-$container-size: 100px;
+$container-size: 150px;
 $bracket-size: 100%;
-$font-size: .8;
+$font-size: 1.2;
 
-.jQBracket{
-  width: $bracket-size;
-  float:left;
-  
-  .bracket{
-    float:left !important;
-    clear:right!important;
-    padding-left:20px;
+.bracketspacecontainer{
+  width:100%;
+  overflow-x:scroll;
+  overflow-y:hidden;
+  .bracketspace{
+    width:1160px;
+    .jQBracket{
+      width: $bracket-size;
+      float:left;
+      
+      .bracket{
+        float:left !important;
+        clear:right!important;
+        padding-left:20px;
+        .region{
+        }
+        .round{
+          width: $container-size !important;
+          .team{
+            width:$container-size !important;
+            font-size: $font-size+em;
+            .label {
+              position:absolute;
+              top:25%;
+            }
+            &.win .label{
+              color: $text-color !important;
+            }
+            &.lose .label{
+              color: lighten($text-color, 30%) !important;
+            }
+            
+            &.false{
+              background: #d00!important;
+            }
+          }
+        }
+      }
+    }
   }
 }
-.round{
-  width: $container-size !important;
-  .team{
-    width:$container-size !important;
-    font-size: $font-size+em;
-    font-size: $font-size+vw;
-    .label {
-      position:absolute;
-      top:25%;
-    }
-    &.win .label{
-      color: $text-color !important;
-    }
-    &.lose .label{
-      color: lighten($text-color, 30%) !important;
-    }
-    
-    &.false{
-      background: #d00!important;
-    }
-  }
-}
+
   

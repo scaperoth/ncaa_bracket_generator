@@ -10,6 +10,7 @@ module BracketHelper
     num_wrong_guesses = 0
     num_games = BracketGame.all.count
     bracket = ""
+    curr_region = nil
     
     if generated
       generated_bracket = JSON.parse(generate_guess_bracket.to_json)
@@ -33,6 +34,9 @@ module BracketHelper
       
       #loop through the games
       games.each do |game, index|
+        region = Region.find_by id: game["region_id"]
+        
+        
         #swap connector directions on each pass
         connector1_direction == "top" ? connector1_direction = "bottom" : connector1_direction = "top" 
         connector2_direction == "bottom" ? connector2_direction = "top" : connector2_direction = "bottom"
@@ -113,12 +117,16 @@ module BracketHelper
     end  
     
     if generated and with_comparison
-      concat content_tag :h1, "Around "+number_to_percentage((1-(num_wrong_guesses.to_f/num_games.to_f))*100).to_s+" accurate"
       #concat content_tag :h3, num_games
       #concat content_tag :h3, num_wrong_guesses
     end
     
-    return bracket.html_safe
+    if generated
+      accuracy = content_tag :h1, number_to_percentage((1-(num_wrong_guesses.to_f/num_games.to_f))*100).to_s+" accurate" 
+      return {accuracy: accuracy, bracket: bracket.html_safe}
+    end
+    
+    return {bracket: bracket.html_safe}
   end
   
   def create_team_block(team1, team2, winner, generated_winner = nil)
