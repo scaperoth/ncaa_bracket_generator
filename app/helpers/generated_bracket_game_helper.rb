@@ -81,6 +81,27 @@ module GeneratedBracketGameHelper
       game_results
   end
   
+  def normalize_data(team)
+    teams = Team.select("kenpom_team_id").where(:bmatrix_team_id => BmatrixStat.where(tournament_id: 1))
+    
+    kp_teams = KenpomStat.select("id, kenpom_team_id, row_number() OVER(ORDER BY rank ASC) AS rank, kenpom_team_id")
+    .where(:kenpom_team_id => teams).where(tournament_id: 1)
+    
+    #concat kp_teams.to_sql
+    #concat "</br></br>".html_safe
+    
+    kp_teams.each do |kp_team|
+     
+      if kp_team.kenpom_team_id == team.kenpom_team_id
+        
+        #concat kp_team.rank
+        #concat "</br></br>".html_safe
+        return kp_team
+      end
+    end
+    
+    return team
+  end
   
   def match(team1, team2, method = nil)
     #team1_name = Team.find_by name: team1
@@ -90,10 +111,13 @@ module GeneratedBracketGameHelper
     #team2_kp_name = team2
     #team1_bmat_name = team1
     #team2_bmat_name = team2
-
+    
+    #team1_original_kp = KenpomStat.find(team1.kenpom_team_id)
+    #team2_original_kp = KenpomStat.find(team2.kenpom_team_id)
+    
     #set active recrod values
-    team1_kp = KenpomStat.find(team1.kenpom_team_id)
-    team2_kp = KenpomStat.find(team2.kenpom_team_id)
+    team1_kp = normalize_data(KenpomStat.find(team1.kenpom_team_id))
+    team2_kp = normalize_data(KenpomStat.find(team2.kenpom_team_id))
     team1_bmat = BmatrixStat.find(team1.bmatrix_team_id)
     team2_bmat = BmatrixStat.find(team2.bmatrix_team_id)
 
@@ -103,6 +127,11 @@ module GeneratedBracketGameHelper
     team1_bmat_rank = team1_bmat.rank
     team2_bmat_rank = team2_bmat.rank
 
+    #concat "original rank: "+ team1_original_kp.rank.to_s+" | normalized_rank: " + team1_kp.rank.to_s
+    #concat "</br>".html_safe
+    #concat "original rank: "+ team2_original_kp.rank.to_s+" | normalized_rank: " + team2_kp.rank.to_s
+    #concat "</br></br>".html_safe
+    
     #initialize wins to zero
     team1_wins = 0
     team2_wins = 0
