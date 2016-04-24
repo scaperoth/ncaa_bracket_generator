@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'landings/index'
+  get 'bracket/index'
   
-  get 'landings/comparison'
+  get 'bracket/comparison'
   
-  post '/' => "landings#index"
+  post '/' => "bracket#index"
   
-  post 'landings/comparison' => "landings#comparison"
+  post 'bracket/comparison' => "bracket#comparison"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'landings#index'
+  root 'bracket#index'
 
   get 'test/kenpom' => "test#kenpom"
   get 'test/bracketmatrix' => "test#bracketmatrix"
