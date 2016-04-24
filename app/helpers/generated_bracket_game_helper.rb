@@ -1,6 +1,6 @@
 module GeneratedBracketGameHelper
   
-  def generate_guess_bracket
+  def generate_guess_bracket(method = nil)
       game_results = []
       next_round_teams = {}
       next_round_games = []
@@ -27,7 +27,7 @@ module GeneratedBracketGameHelper
           #concat (game["region_id"].to_s + "<br/>").html_safe
           team1 = Team.find_by id: game["team_id"]
           team2 = Team.find_by id: game["team2_id"]
-          winner = match(team1,team2)
+          winner = match(team1,team2, method)
           
           game_results.push({"round_id": round.id, 
             "region_id": game["region_id"],
@@ -82,7 +82,7 @@ module GeneratedBracketGameHelper
   end
   
   
-  def match(team1, team2)
+  def match(team1, team2, method = nil)
     #team1_name = Team.find_by name: team1
     #team2_name = Team.find_by name: team2
 
@@ -106,33 +106,44 @@ module GeneratedBracketGameHelper
     #initialize wins to zero
     team1_wins = 0
     team2_wins = 0
-
-    #check outcome of both teams in kp
-    if team1_kp_rank < team2_kp_rank
-    team1_wins += 1
-    else
-    team2_wins += 1
+    
+    if method == "kp" or method == "all"
+       #check outcome of both teams in kp
+      if team1_kp_rank < team2_kp_rank
+      team1_wins += 1
+      else
+      team2_wins += 1
+      end
+    end
+    
+    
+    if method == "all"
+      #outcome of one team in kp and other in bmat
+      if team1_kp_rank<team2_bmat_rank
+      team1_wins += 1
+      else
+      team2_wins += 1
+      end
+    end
+    
+    
+    if method == "all"
+      #outcome of one team in bmat the other in kp
+      if team1_bmat_rank < team2_kp_rank
+      team1_wins += 1
+      else
+      team2_wins += 1
+      end
     end
 
-    #outcome of one team in kp and other in bmat
-    if team1_kp_rank<team2_bmat_rank
-    team1_wins += 1
-    else
-    team2_wins += 1
-    end
-
-    #outcome of one team in bmat the other in kp
-    if team1_bmat_rank < team2_kp_rank
-    team1_wins += 1
-    else
-    team2_wins += 1
-    end
-
-    #outcome of both teams in bmat
-    if team1_bmat_rank < team2_bmat_rank
-    team1_wins += 1
-    else
-    team2_wins += 1
+    
+    if method == "bmat" or method == "all"
+      #outcome of both teams in bmat
+      if team1_bmat_rank < team2_bmat_rank
+      team1_wins += 1
+      else
+      team2_wins += 1
+      end
     end
 
     #return the active record of the winner

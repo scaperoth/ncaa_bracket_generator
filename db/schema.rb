@@ -91,25 +91,6 @@ ActiveRecord::Schema.define(version: 20160419021724) do
   add_index "bracket_games", ["tournament_id"], name: "index_bracket_games_on_tournament_id", using: :btree
   add_index "bracket_games", ["winner_id"], name: "index_bracket_games_on_winner_id", using: :btree
 
-  create_table "brackets", force: true do |t|
-    t.integer  "tournament_id"
-    t.integer  "round_id"
-    t.integer  "region_id"
-    t.integer  "team_id"
-    t.integer  "team2_id"
-    t.integer  "weight"
-    t.integer  "winner_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "brackets", ["region_id"], name: "index_brackets_on_region_id", using: :btree
-  add_index "brackets", ["round_id"], name: "index_brackets_on_round_id", using: :btree
-  add_index "brackets", ["team2_id"], name: "index_brackets_on_team2_id", using: :btree
-  add_index "brackets", ["team_id"], name: "index_brackets_on_team_id", using: :btree
-  add_index "brackets", ["tournament_id"], name: "index_brackets_on_tournament_id", using: :btree
-  add_index "brackets", ["winner_id"], name: "index_brackets_on_winner_id", using: :btree
-
   create_table "conferences", force: true do |t|
     t.string   "name"
     t.string   "kp_name"
@@ -136,19 +117,11 @@ ActiveRecord::Schema.define(version: 20160419021724) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "generated_bracket_games", force: true do |t|
-    t.integer  "tournament_id"
-    t.integer  "round_id"
-    t.integer  "region_id"
-    t.integer  "team_id"
-    t.integer  "team2_id"
-    t.integer  "weight"
-    t.integer  "winner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "generated_bracket_options", force: true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -189,43 +162,12 @@ ActiveRecord::Schema.define(version: 20160419021724) do
     t.datetime "updated_at"
   end
 
-  create_table "regions_tournaments", force: true do |t|
-    t.integer  "tournament_id"
-    t.integer  "region_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "regions_tournaments", ["region_id"], name: "index_regions_tournaments_on_region_id", using: :btree
-  add_index "regions_tournaments", ["tournament_id"], name: "index_regions_tournaments_on_tournament_id", using: :btree
-
   create_table "rounds", force: true do |t|
     t.integer  "number"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "rounds_regions_tournaments", force: true do |t|
-    t.string   "name"
-    t.integer  "round_id"
-    t.integer  "regions_tournament_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "rounds_regions_tournaments", ["regions_tournament_id"], name: "index_rounds_regions_tournaments_on_regions_tournament_id", using: :btree
-  add_index "rounds_regions_tournaments", ["round_id"], name: "index_rounds_regions_tournaments_on_round_id", using: :btree
-
-  create_table "rounds_tournaments", force: true do |t|
-    t.integer  "tournament_id"
-    t.integer  "round_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "rounds_tournaments", ["round_id"], name: "index_rounds_tournaments_on_round_id", using: :btree
-  add_index "rounds_tournaments", ["tournament_id"], name: "index_rounds_tournaments_on_tournament_id", using: :btree
 
   create_table "teams", force: true do |t|
     t.string   "name"
@@ -237,43 +179,6 @@ ActiveRecord::Schema.define(version: 20160419021724) do
   end
 
   add_index "teams", ["name"], name: "index_teams_on_name", using: :btree
-
-  create_table "teams_tournaments", force: true do |t|
-    t.integer  "team_id"
-    t.integer  "tournament_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "teams_tournaments", ["team_id"], name: "index_teams_tournaments_on_team_id", using: :btree
-  add_index "teams_tournaments", ["tournament_id"], name: "index_teams_tournaments_on_tournament_id", using: :btree
-
-  create_table "tournament_matches", force: true do |t|
-    t.integer  "regions_tournament_id"
-    t.integer  "rounds_tournament_id"
-    t.integer  "team1_id"
-    t.integer  "team2_id"
-    t.integer  "weight"
-    t.integer  "winner_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "tournament_matches", ["regions_tournament_id"], name: "index_tournament_matches_on_regions_tournament_id", using: :btree
-  add_index "tournament_matches", ["rounds_tournament_id"], name: "index_tournament_matches_on_rounds_tournament_id", using: :btree
-  add_index "tournament_matches", ["team1_id"], name: "index_tournament_matches_on_team1_id", using: :btree
-  add_index "tournament_matches", ["team2_id"], name: "index_tournament_matches_on_team2_id", using: :btree
-  add_index "tournament_matches", ["winner_id"], name: "index_tournament_matches_on_winner_id", using: :btree
-
-  create_table "tournament_teams", force: true do |t|
-    t.integer  "team_id"
-    t.integer  "tournament_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "tournament_teams", ["team_id"], name: "index_tournament_teams_on_team_id", using: :btree
-  add_index "tournament_teams", ["tournament_id"], name: "index_tournament_teams_on_tournament_id", using: :btree
 
   create_table "tournaments", force: true do |t|
     t.string   "name"

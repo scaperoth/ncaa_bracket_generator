@@ -3,7 +3,20 @@
 <% tournament = Tournament.find_by year: tournament_year%>
 <h1><%= tournament.name %> Generated Bracket</h1>
 <p>Bracket generated using data, with permission, from <a href="http://kenpom.com" target="_blank">kenpom.com</a> and <a href="http://bracketmatrix.com" target="_blank">bracketmatrix.com</a></p>
-<% bracket_generator = create_bracket(true, true)%>
+
+<% bracket_generator = create_bracket(true, true, @method)%>
+<%= "params: "+@params.to_s %>
+<%= form_tag("/landings/comparison", method: "post") do %>
+  <%= label_tag(:q, "generate using:") %>
+  <%= select_tag("method", options_for_select(	
+  [
+    ['Both', "all"],
+    ['Ken Pom', "kp"],
+    ['Bracket Matrix', "bmat"]
+  ]
+) ) %>
+  <%= submit_tag("generate") %>
+<% end %>
 
 <%= bracket_generator[:accuracy]%>
 <div class="bracketspacecontainer">

@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   get 'landings/index'
   
   get 'landings/comparison'
+  
+  post '/' => "landings#index"
+  
+  post 'landings/comparison' => "landings#comparison"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

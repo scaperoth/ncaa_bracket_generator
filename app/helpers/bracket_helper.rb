@@ -6,14 +6,14 @@ module BracketHelper
   
   
   # creates a bracket from given teams
-  def create_bracket(generated = false, with_comparison = false)
+  def create_bracket(generated = false, with_comparison = false, method = nil)
     num_wrong_guesses = 0
     num_games = BracketGame.all.count
     bracket = ""
     curr_region = nil
     
     if generated
-      generated_bracket = JSON.parse(generate_guess_bracket.to_json)
+      generated_bracket = JSON.parse(generate_guess_bracket(method).to_json)
     end
     
     #concat content_tag :h1, num_wrong_guesses
