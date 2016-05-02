@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .//phantom
+//= require_tree .//modernizr
+//= require_tree .//bracket
+//= require_tree .//iscroll
 //= require_tree .
