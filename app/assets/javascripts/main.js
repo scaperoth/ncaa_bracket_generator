@@ -1,6 +1,7 @@
 
 
 (function($) {
+	/*
 	myScroll = new IScroll('.bracketspace', {
 		scrollX : true,
 		scrollY : true,
@@ -8,7 +9,7 @@
 		zoomMin : -2,
 		zoomMax : 1
 	});
-	
+	*/
 	if (!Modernizr.svg) {
 		$(".logo img").attr("src", "/assets/logo.png");
 		$(".logo img").attr("style", "width=2em; height=2em;");
