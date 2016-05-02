@@ -8,13 +8,13 @@ $font-size: 1.2;
 .bracketspacecontainer{
   width:100%;
   height:100%;
-  overflow-x:scroll;
+  overflow-x:hidden;
   overflow-y:hidden;
-  position:relative;
   .bracketspace{
-    width:$bracket-width;
     .jQBracket{
       float:left;
+      width:$bracket-width;
+      height:($bracket-width * 2);
       
       .bracket{
         float:left !important;
