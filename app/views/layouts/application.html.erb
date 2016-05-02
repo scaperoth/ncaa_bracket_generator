@@ -11,11 +11,38 @@
 		<%= analytics_init if Rails.env.production? or Rails.env.development? %>
 	</head>
 	<body>
-		<%= render partial: "elements/navbar" %>
-		<%= bootstrap_flash %>
-		<%= yield %>
-		
+		<!-- Wrapper -->
+		<div id="wrapper">
+			<!-- Header -->
+			<header id="header">
+				<div class="inner">
+
+					<!-- Logo -->
+					<a href="/" class="logo"> <span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">March Calmness</span> </a>
+
+					<!-- Nav -->
+					<nav>
+						<ul>
+							<li>
+								<a href="#menu">Menu</a>
+							</li>
+						</ul>
+					</nav>
+
+				</div>
+			</header>
+
+			<%= render partial: "elements/navbar" %>
+			<%= bootstrap_flash %>
+			<div id="main">
+				<div class="inner">
+
+					<%= yield %>
+				</div>
+			</div>
+		</div>
+
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	</body>
-	
+
 </html>

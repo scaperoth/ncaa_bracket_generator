@@ -61,6 +61,7 @@ gem 'bootstrap-sass-extras'
 gem 'tzinfo-data'
 gem 'validates_formatting_of'
 gem 'rails_12factor', group: :production
+gem 'font-awesome-sass'
 
 #design theme for active admin
 gem 'flattened_active_admin'

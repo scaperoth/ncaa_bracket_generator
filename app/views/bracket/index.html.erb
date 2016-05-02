@@ -2,27 +2,31 @@
 <% bracket_helper = BracketHelper %>
 <% tournament = Tournament.find_by year: tournament_year%>
 <h1><%= tournament.name %> Generated Bracket</h1>
-<p>Bracket generated using data, with permission, from <a href="http://kenpom.com" target="_blank">kenpom.com</a> and <a href="http://bracketmatrix.com" target="_blank">bracketmatrix.com</a></p>
+<p>
+	Bracket generated using data, with permission, from <a href="http://kenpom.com" target="_blank">kenpom.com</a> and <a href="http://bracketmatrix.com" target="_blank">bracketmatrix.com</a>
+</p>
 
 <% bracket_generator = create_bracket(true, false, @method)%>
-
-<%= form_tag("/", method: "post") do %>
-  <%= label_tag(:q, "generate using:") %>
-  <%= select_tag("method", options_for_select(	
-  [
-    ['Both', "all"],
-    ['Ken Pom', "kp"],
-    ['Bracket Matrix', "bmat"]
-  ]
-) ) %>
-  <%= submit_tag("generate") %>
-<% end %>
-
+<section>
+	<%= form_tag("/", method: "post") do %>
+	<%= label_tag(:q, "generate using:") %>
+	<div class="select-wrapper small">
+		<%= select_tag("method", options_for_select(
+		[
+		['Both', "all"],
+		['Ken Pom', "kp"],
+		['Bracket Matrix', "bmat"]
+		]
+		) ) %>
+	</div>
+	<%= submit_tag("generate") %>
+	<% end %>
+</section>
 <div class="bracketspacecontainer">
 	<div class= "bracketspace">
 		<div class="jQBracket lr">
 			<div class="bracket" style="height: <%= 8 * 64 %>">
-					<%= bracket_generator[:bracket] %>
+				<%= bracket_generator[:bracket] %>
 			</div><!-- end bracket -->
 		</div><!-- end jq bracket -->
 	</div><!-- end bracketspace -->

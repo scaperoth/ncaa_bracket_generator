@@ -1,0 +1,63 @@
+
+@import "bootstrap_configuration";
+$container-size: 150px;
+$bracket-size: 100%;
+$font-size: 1.2;
+
+.bracketspacecontainer{
+  width:100%;
+  height:100%;
+  overflow-x:scroll;
+  overflow-y:hidden;
+  .bracketspace{
+    width:1160px;
+    .jQBracket{
+      width: $bracket-size;
+      float:left;
+      
+      .bracket{
+        float:left !important;
+        clear:right!important;
+        padding-left:20px;
+        .region{
+        }
+        .round{
+          width: $container-size !important;
+          .teamContainer{
+            
+            .connector{
+              border-color:#ccc;
+              &.highlight{
+                border-color:#3c0!important;
+              }
+            }
+            .team{
+              &.highlight{
+                background:#3c0!important;
+              }
+              width:$container-size !important;
+              font-size: $font-size+em;
+              background-color: #fff;
+              .label {
+                position:absolute;
+                top:25%;
+              }
+              &.win .label{
+                color: $text-color !important;
+              }
+              &.lose .label{
+                color: lighten($text-color, 30%) !important;
+              }
+              
+              &.false{
+                background: #ff6666!important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+  

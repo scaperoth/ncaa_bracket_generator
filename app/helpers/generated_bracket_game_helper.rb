@@ -82,9 +82,9 @@ module GeneratedBracketGameHelper
   end
   
   def normalize_data(team)
-    teams = Team.select("kenpom_team_id").where(:bmatrix_team_id => BmatrixStat.where(tournament_id: 1))
+    teams = Team.select("kenpom_team_id").where(:bmatrix_team_id => BmatrixStat.select("bmatrix_team_id").where(tournament_id: 1))
     
-    kp_teams = KenpomStat.select("id, kenpom_team_id, row_number() OVER(ORDER BY rank ASC) AS rank, kenpom_team_id")
+    kp_teams = KenpomStat.select("id, kenpom_team_id, wl, row_number() OVER(ORDER BY kenpom_stats.rank ASC) AS ranking")
     .where(:kenpom_team_id => teams).where(tournament_id: 1)
     
     #concat kp_teams.to_sql
@@ -94,7 +94,7 @@ module GeneratedBracketGameHelper
      
       if kp_team.kenpom_team_id == team.kenpom_team_id
         
-        #concat kp_team.rank
+        #concat kp_team.wl
         #concat "</br></br>".html_safe
         return kp_team
       end
@@ -122,8 +122,8 @@ module GeneratedBracketGameHelper
     team2_bmat = BmatrixStat.find(team2.bmatrix_team_id)
 
     #get rank of each team in each source
-    team1_kp_rank = team1_kp.rank
-    team2_kp_rank = team2_kp.rank
+    team1_kp_rank = team1_kp.ranking
+    team2_kp_rank = team2_kp.ranking
     team1_bmat_rank = team1_bmat.rank
     team2_bmat_rank = team2_bmat.rank
 
@@ -135,6 +135,11 @@ module GeneratedBracketGameHelper
     #initialize wins to zero
     team1_wins = 0
     team2_wins = 0
+    
+    #concat "Team1: "+team1.name+" | "+ team2.name
+    #concat "</br>".html_safe
+    #concat "team1_kp_rank: "+ team1_kp_rank.to_s+" | team2_kp_rank: " +team2_kp_rank.to_s 
+    #concat "</br></br>".html_safe
     
     if method == "kp" or method == "all"
        #check outcome of both teams in kp

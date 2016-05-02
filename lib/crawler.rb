@@ -10,7 +10,7 @@ class Crawler
   attr_accessor :kp_url, :kp_team_data, :kp_column_names, :bmat_url, :bmat_team_data, :bmat_column_names, :bmat_num_columns
   def initialize()
     @kp_url = "http://kenpom.com"
-    @bmat_url = "http://matrixbracket.com"
+    @bmat_url = "http://bracketmatrix.com/"
     @kp_team_data = Hash.new
     @kp_column_names = Hash.new
     @bmat_team_data = Hash.new
@@ -54,8 +54,8 @@ class Crawler
 
     db_columns = ["rank", "name", "conf", "avg_seed"]
     
-    #doc = Nokogiri::HTML(open(url))
-    doc = Nokogiri::HTML(File.open("#{Rails.root}/db/data/2016/bracketmatrix2016.html.erb"))
+    doc = Nokogiri::HTML(open(url))
+    #doc = Nokogiri::HTML(File.open("#{Rails.root}/db/data/2016/bracketmatrix2016.html.erb"))
 
 
     #num_columns = (num_columns/num_rows) + 1
@@ -106,8 +106,8 @@ class Crawler
 
     # Fetch and parse HTML document
     #doc = Nokogiri::HTML(open(@url))
-    #doc = Nokogiri::HTML(open(url))
-    doc = Nokogiri::HTML(File.open("#{Rails.root}/db/data/2016/kenpom2016.html.erb"))
+    doc = Nokogiri::HTML(open(url))
+    #doc = Nokogiri::HTML(File.open("#{Rails.root}/db/data/2016/kenpom2016.html.erb"))
 
     #get the columns and column names first
     doc.css('table thead:first-child tr:nth-child(2) th').each do |link|

@@ -47,7 +47,7 @@ module BracketHelper
         round_number = round.number.to_f
         
         #the height of each match
-        height = 2 ** (round_number-1) * 64
+        height = 2 ** (round_number-1) * 82
         
         # get the team data from tournament
         team1 = Team.find_by id: game["team_id"]
