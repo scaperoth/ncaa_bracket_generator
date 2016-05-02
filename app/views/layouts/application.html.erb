@@ -4,9 +4,8 @@
 		<title>March Calmness</title>
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
-		<%
-		#<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		%>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		
 		<!-- Prelang: Analytics / Google Analytics -->
 		<%= analytics_init if Rails.env.production? or Rails.env.development? %>
 	</head>
@@ -18,7 +17,7 @@
 				<div class="inner">
 
 					<!-- Logo -->
-					<a href="/" class="logo"> <span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">March Calmness</span> </a>
+					<a href="/" class="logo"> <span class="symbol"><img src="/assets/logo.svg" alt="" /></span><span class="title">March Calmness</span> </a>
 
 					<!-- Nav -->
 					<nav>

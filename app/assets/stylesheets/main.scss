@@ -1,7 +1,12 @@
+
+
 #header{
   padding: 3em 0 0.1em 0
 }
-
+#header .logo .symbol img{
+  width:6em;
+  height:6em;
+}
 .select-wrapper.small{
   width:25%;
   margin-bottom:10px;
@@ -9,6 +14,7 @@
   float:left;
 }
 
-.select-wrapper:hover{
-  color:#000;
+.select-wrapper:hover:before{
+  color:$secondary-color;
 }
+

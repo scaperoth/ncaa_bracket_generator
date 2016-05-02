@@ -5,7 +5,13 @@
 */
 
 (function($) {
-
+	myScroll = new IScroll('.bracketspacecontainer', {
+    scrollX: true,
+    scrollY: true,
+    zoom: true,
+    zoomMin: -2,
+    zoomMax: 1
+});
 	skel.breakpoints({
 		xlarge:	'(max-width: 1680px)',
 		large:	'(max-width: 1280px)',
