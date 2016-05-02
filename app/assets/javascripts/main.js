@@ -14,8 +14,6 @@
 		$(".logo img").attr("style", "width=2em; height=2em;");
 	}
 	
-	alert(Modernizr.svg)
-	
 	skel.breakpoints({
 		xlarge : '(max-width: 1680px)',
 		large : '(max-width: 1280px)',
