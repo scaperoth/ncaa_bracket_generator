@@ -1,6 +1,7 @@
 
 @import "bootstrap_configuration";
 $container-size: 150px;
+$bracket-width: 1160px;
 $bracket-size: 100%;
 $font-size: 1.2;
 
@@ -8,11 +9,11 @@ $font-size: 1.2;
   width:100%;
   height:100%;
   overflow-x:scroll;
-  overflow-y:scroll;
+  overflow-y:hidden;
+  position:relative;
   .bracketspace{
-    width:1160px;
+    width:$bracket-width;
     .jQBracket{
-      width: $bracket-size;
       float:left;
       
       .bracket{

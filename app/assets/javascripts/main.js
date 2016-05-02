@@ -6,8 +6,7 @@
 
 (function($) {
 	myScroll = new IScroll('.bracketspacecontainer', {
-    scrollX: true,
-    scrollY: true,
+	freeScroll: true,
     zoom: true,
     zoomMin: -2,
     zoomMax: 1
