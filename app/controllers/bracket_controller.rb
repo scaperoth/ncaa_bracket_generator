@@ -1,25 +1,25 @@
 class BracketController < ApplicationController
-  
+  before_filter :set_tournament_and_method
   
   def index
-    @params = params
-    
-    @method = "all"
-    
-    if !params[:method].nil?
-      @method = params[:method]
+    games = BracketGame.where(tournament: @tournament)
+    if games.empty?
+      render "coming_soon"
     end
   end
   
   def comparison
-    
-    @params = params
-    
-    @method = "all"
-    
-    if !params[:method].nil?
-      @method = params[:method]
-    end
   end
   
+  private
+  
+  def set_tournament_and_method
+    
+    tournament_year = params[:year] || Time.now.year.to_s
+    @tournament = Tournament.find_by year: tournament_year
+    
+    @bracket_helper = BracketHelper 
+    @method = params[:method] || "all"
+    
+  end
 end

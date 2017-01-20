@@ -1,6 +1,6 @@
 module GeneratedBracketGameHelper
   
-  def generate_guess_bracket(method = nil)
+  def generate_guess_bracket(tournament, method = nil)
       game_results = []
       next_round_teams = {}
       next_round_games = []
@@ -27,7 +27,7 @@ module GeneratedBracketGameHelper
           #concat (game["region_id"].to_s + "<br/>").html_safe
           team1 = Team.find_by id: game["team_id"]
           team2 = Team.find_by id: game["team2_id"]
-          winner = match(team1,team2, method)
+          winner = match(tournament, team1,team2, method)
           
           game_results.push({"round_id": round.id, 
             "region_id": game["region_id"],
@@ -82,10 +82,10 @@ module GeneratedBracketGameHelper
   end
   
   def normalize_data(team)
-    teams = Team.select("kenpom_team_id").where(:bmatrix_team_id => BmatrixStat.select("bmatrix_team_id").where(tournament_id: 1))
+    teams = Team.select("kenpom_team_id").where(:bmatrix_team_id => BmatrixStat.select("bmatrix_team_id").where(tournament_id: team.tournament_id))
     
-    kp_teams = KenpomStat.select("id, kenpom_team_id, wl, row_number() OVER(ORDER BY kenpom_stats.rank ASC) AS ranking")
-    .where(:kenpom_team_id => teams).where(tournament_id: 1)
+    kp_teams = KenpomStat.select("id, kenpom_team_id, wl, row_number() OVER(ORDER BY kenpom_stats.rank ASC) AS rank")
+    .where(:kenpom_team_id => teams).where(tournament_id: team.tournament_id)
     
     #concat kp_teams.to_sql
     #concat "</br></br>".html_safe
@@ -103,7 +103,7 @@ module GeneratedBracketGameHelper
     return team
   end
   
-  def match(team1, team2, method = nil)
+  def match(tournament, team1, team2, method = nil)
     #team1_name = Team.find_by name: team1
     #team2_name = Team.find_by name: team2
 
@@ -115,15 +115,15 @@ module GeneratedBracketGameHelper
     #team1_original_kp = KenpomStat.find(team1.kenpom_team_id)
     #team2_original_kp = KenpomStat.find(team2.kenpom_team_id)
     
-    #set active recrod values
-    team1_kp = normalize_data(KenpomStat.find(team1.kenpom_team_id))
-    team2_kp = normalize_data(KenpomStat.find(team2.kenpom_team_id))
-    team1_bmat = BmatrixStat.find(team1.bmatrix_team_id)
-    team2_bmat = BmatrixStat.find(team2.bmatrix_team_id)
+    #set active record values
+    team1_kp = normalize_data(KenpomStat.find_by(tournament: tournament, kenpom_team_id: team1.kenpom_team_id))
+    team2_kp = normalize_data(KenpomStat.find_by(tournament: tournament, kenpom_team_id: team2.kenpom_team_id))
+    team1_bmat = BmatrixStat.find_by(tournament: tournament, bmatrix_team: team1.bmatrix_team_id)
+    team2_bmat = BmatrixStat.find_by(tournament: tournament, bmatrix_team: team2.bmatrix_team_id)
 
     #get rank of each team in each source
-    team1_kp_rank = team1_kp.ranking
-    team2_kp_rank = team2_kp.ranking
+    team1_kp_rank = team1_kp.rank 
+    team2_kp_rank = team2_kp.rank 
     team1_bmat_rank = team1_bmat.rank
     team2_bmat_rank = team2_bmat.rank
 
