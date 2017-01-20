@@ -1,12 +1,10 @@
-<% tournament_year = "2016" %>
-<% bracket_helper = BracketHelper %>
-<% tournament = Tournament.find_by year: tournament_year%>
-<h1><%= tournament.name %> Generated Bracket</h1>
+
+<h1><%= @tournament.name %> Generated Bracket</h1>
 <p>
 	Bracket generated using data, with permission, from <a href="http://kenpom.com" target="_blank">kenpom.com</a> and <a href="http://bracketmatrix.com" target="_blank">bracketmatrix.com</a>
 </p>
 
-<% bracket_generator = create_bracket(true, false, @method)%>
+<% bracket_generator = create_bracket(@tournament, @method)%>
 <section>
 	<%= form_tag("/", method: "post") do %>
 	<%= label_tag(:q, "generate using:") %>
@@ -26,7 +24,7 @@
 	<div class= "bracketspace">
 		<div class="jQBracket lr">
 			<div class="bracket" style="height: <%= 8 * 64 %>">
-				<%= bracket_generator[:bracket] %>
+				<%= @bracket_generator[:bracket] %>
 			</div><!-- end bracket -->
 		</div><!-- end jq bracket -->
 	</div><!-- end bracketspace -->

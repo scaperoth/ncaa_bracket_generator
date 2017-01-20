@@ -1,0 +1,11 @@
+<h1>Archive</h1>
+
+<ul>
+  <% available_brackets.each do |tournament| %>
+  <li>
+    <h3>
+        <%= link_to tournament.name, bracket_comparison_path(year: tournament.year) %>
+    </h3>
+  </li>
+  <% end %>
+</ul>

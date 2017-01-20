@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.4'
+ruby '2.2.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
@@ -38,7 +38,7 @@ gem 'nokogiri'
 # gem 'capistrano-rails', group: :development
 
 #use puma for heroku
-gem 'puma'
+#gem 'puma'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
