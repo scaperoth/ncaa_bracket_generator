@@ -1,11 +1,26 @@
+<% if @tournament.present? %>
+<h1>
+  <%= @tournament.name %> Generated Bracket
+</h1>
+<h2 class="text-center">
+  Data for <%= @tournament.name %> not available yet.</h2>
+<% else %>
+<h1>
+  <%= Time.now.year.to_s %> Bracket
+</h1>
+<h2 class="text-center">
+  Data for not available yet.
+</h2>
+<% end %>
 
-<h1><%= @tournament.name %> Generated Bracket</h1>
-
-<h2 class="text-center">Data for <%= @tournament.name %> not available yet.</h2>
-
-<h4> Check back again when the tournament teams are chosen or <%= link_to "view our archive", archive_path %> of older tournament results.</h4>
-
+<h4>
+    Check back again when the tournament teams are chosen or
+    <%= link_to "view our archive", archive_path %>
+    of older tournament results.</h4>
 
 <p>
-	Brackets generated using data, with permission, from <a href="http://kenpom.com" target="_blank">kenpom.com</a> and <a href="http://bracketmatrix.com" target="_blank">bracketmatrix.com</a>
+    Brackets generated using data, with permission, from
+    <a href="http://kenpom.com" target="_blank">kenpom.com</a>
+    and
+    <a href="http://bracketmatrix.com" target="_blank">bracketmatrix.com</a>
 </p>
