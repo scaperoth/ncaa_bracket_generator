@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
     
+  
+    post 'bracket/comparison/(:year)' => 'bracket#comparison', as: :bracket_method_comparison 
     get 'bracket/comparison/(:year)' => 'bracket#comparison', as: :bracket_comparison
 
     get 'archive' => 'archive#index', as: :archive
