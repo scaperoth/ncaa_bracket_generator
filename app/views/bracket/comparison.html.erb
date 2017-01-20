@@ -8,7 +8,7 @@
 <%=
  #"params: "+@params.to_s
 %>
-<%= form_tag("/bracket/comparison/"+@tournament.year, method: "post") do %>
+<%= form_tag(bracket_method_comparison_path(year: @tournament.year), method: "post") do %>
 <%= label_tag(:q, "generate using:") %>
 
 <div class="select-wrapper small">
