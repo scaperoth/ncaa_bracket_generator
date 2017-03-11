@@ -1,33 +1,26 @@
-[
-	{
-		"name": "2017 NCAA Division 1 Men's Basketball Championship",
-		"date":"March 15, 2017",
-		"year": "2017"
-	},
-	{
-		"name": "2016 NCAA Division 1 Men's Basketball Championship",
-		"date":"March 15, 2016",
-		"year": "2016"
-	},
-	{
-		"name": "2015 NCAA Division 1 Men's Basketball Championship",
-		"date":"March 17, 2015",
-		"year": "2015"
-	},
-	{
-		"name": "2014 NCAA Division 1 Men's Basketball Championship",
-		"date":"March 18, 2014",
-		"year": "2014"
-	},
-	{
-		"name": "2013 NCAA Division 1 Men's Basketball Championship",
-		"date":"March 19, 2013",
-		"year": "2013"
-	},
-	{
-		"name": "2012 NCAA Division 1 Men's Basketball Championship",
-		"date":"March 13, 2012",
-		"year": "2012"
-	}
-	
+[{
+        "name": "2012 NCAA Division 1 Men's Basketball Championship",
+        "date": "March 13, 2012",
+        "year": "2012"
+    },
+    {
+        "name": "2013 NCAA Division 1 Men's Basketball Championship",
+        "date": "March 19, 2013",
+        "year": "2013"
+    },
+    {
+        "name": "2014 NCAA Division 1 Men's Basketball Championship",
+        "date": "March 18, 2014",
+        "year": "2014"
+    },
+    {
+        "name": "2015 NCAA Division 1 Men's Basketball Championship",
+        "date": "March 17, 2015",
+        "year": "2015"
+    },
+    {
+        "name": "2016 NCAA Division 1 Men's Basketball Championship",
+        "date": "March 15, 2016",
+        "year": "2016"
+    }
 ]
