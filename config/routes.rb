@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
     
-  
+    get 'bracket' => 'bracket#index', as: :bracket
     post 'bracket/comparison/(:year)' => 'bracket#comparison', as: :bracket_method_comparison 
     get 'bracket/comparison/(:year)' => 'bracket#comparison', as: :bracket_comparison
 
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     # See how all your routes lay out with "rake routes".
 
     # You can have the root of your site routed with "root"
-    root 'bracket#index'
+    root 'landings#index'
 
     get 'test/kenpom' => 'test#kenpom'
     get 'test/bracketmatrix' => 'test#bracketmatrix'

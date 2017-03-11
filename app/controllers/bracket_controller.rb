@@ -14,6 +14,11 @@ class BracketController < ApplicationController
   private
   
   def set_tournament_and_method
+    if(params['method'].size == 2)
+      params[:method] = "all"
+    else
+      params[:method] = params['method'].keys.first
+    end
     
     tournament_year = params[:year] || Time.now.year.to_s
     @tournament = Tournament.find_by year: tournament_year

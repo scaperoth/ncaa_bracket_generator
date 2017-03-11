@@ -5,7 +5,7 @@
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
 		<!--<meta name="viewport" content="width=device-width, initial-scale=1"/>-->
-		
+
 		<!-- Prelang: Analytics / Google Analytics -->
 		<%= analytics_init if Rails.env.production? or Rails.env.development? %>
 	</head>
@@ -17,7 +17,10 @@
 				<div class="inner">
 
 					<!-- Logo -->
-					<a href="/" class="logo"> <span class="symbol"><img class="logoimg" src="/assets/logo.svg" ></span><span class="title">March Calmness</span> </a>
+					<a href="/" class="logo">
+						<span class="symbol"><img class="logoimg" src="/assets/logo.svg"></span>
+						<span class="title">March Calmness</span>
+					</a>
 
 					<!-- Nav -->
 					<nav>
@@ -34,14 +37,27 @@
 			<%= render partial: "elements/navbar" %>
 			<%= bootstrap_flash %>
 			<div id="main">
+				<% if home_page? %>
+					<%= yield %>
+				<% else %>
 				<div class="inner">
-
 					<%= yield %>
 				</div>
+				<% end %>
 			</div>
 		</div>
+		<div class="break"></div>
+		<footer>
+			<div class="inner">
+				Brackets generated using data, with permission, from
+				<a href="http://kenpom.com" target="_blank">kenpom.com</a>
+				and
+				<a href="http://bracketmatrix.com" target="_blank">bracketmatrix.com</a>
+			</div>
+		</footer>
+	</div>
 
-		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	</body>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>
 
 </html>
