@@ -377,7 +377,7 @@
 	{
 	 	"name" : "East Tennessee St.",
 	 	"kp_name" : "East Tennessee St.",
-	 	"bmat_name" : "East Tennessee State"
+	 	"bmat_name" : "E. Tennessee State"
 	},
 	{
 	 	"name" : "Eastern Illinois",
@@ -1302,7 +1302,7 @@
 	{
 	 	"name" : "SMU",
 	 	"kp_name" : "SMU",
-	 	"bmat_name" : "Southern Methodist"
+	 	"bmat_name" : "SMU"
 	},
 	{
 	 	"name" : "South Alabama",
@@ -1627,7 +1627,7 @@
 	{
 	 	"name" : "VCU",
 	 	"kp_name" : "VCU",
-	 	"bmat_name" : "Virginia Commonwealth"
+	 	"bmat_name" : "VCU||Virginia Commonwealth"
 	},
 	{
 	 	"name" : "Vermont",

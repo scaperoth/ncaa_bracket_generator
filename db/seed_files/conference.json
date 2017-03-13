@@ -1,4 +1,15 @@
 [
+	
+		{
+			"name": "Great West Conference",
+			"kp_name":"GWC",
+			"bmat_name":"Great West"
+		},
+	{
+		"name": "FBS Independents",
+		"kp_name":"ind",
+		"bmat_name":"FBS Independent"
+	},
 	{
 		"name": "America East Conference",
 		"kp_name":"AE",

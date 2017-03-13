@@ -12,7 +12,8 @@ module GeneratedBracketGameHelper
       #get first round results
       Round.where.not(number: 0).order(:number).each do |round|
         #concat (round.name+"</br>").html_safe
-        existing_games = JSON.parse(BracketGame.where(round_id: round.id).order(:region_id, :weight).to_json)
+        existing_games = JSON.parse(BracketGame.where(tournament_id: tournament, round_id: round.id).order(:region_id, :weight).to_json)
+        
         games = existing_games
         
         if round.number > 1
@@ -27,6 +28,7 @@ module GeneratedBracketGameHelper
           #concat (game["region_id"].to_s + "<br/>").html_safe
           team1 = Team.find_by id: game["team_id"]
           team2 = Team.find_by id: game["team2_id"]
+          
           winner = match(tournament, team1,team2, method)
           
           game_results.push({"round_id": round.id, 

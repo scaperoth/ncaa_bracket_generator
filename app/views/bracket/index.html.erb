@@ -1,32 +1,39 @@
-
-<h1><%= @tournament.name %> Generated Bracket</h1>
+<h1><%= @tournament.name %>
+	Generated Bracket</h1>
 <p>
-	Bracket generated using data, with permission, from <a href="http://kenpom.com" target="_blank">kenpom.com</a> and <a href="http://bracketmatrix.com" target="_blank">bracketmatrix.com</a>
+	Bracket generated using data, with permission, from
+	<a href="http://kenpom.com" target="_blank">kenpom.com</a>
+	and
+	<a href="http://bracketmatrix.com" target="_blank">bracketmatrix.com</a>
 </p>
 
-<% bracket_generator = create_bracket(@tournament, @method)%>
+<% bracket_generator = create_bracket(@tournament, @method, true)%>
 <section>
-	<%= form_tag("/", method: "post") do %>
-	<%= label_tag(:q, "generate using:") %>
-	<div class="select-wrapper small">
-		<%= select_tag("method", options_for_select(
-		[
-		['Both', "all"],
-		['Ken Pom', "kp"],
-		['Bracket Matrix', "bmat"]
-		]
-		) ) %>
+	<%= form_tag(generate_bracket_path(year: @tournament.year), method: "post") do %>
+	<%= label_tag 'method', 'Generate Using:'%>
+	<div class="row uniform" style="padding-bottom:30px;">
+		<div class="3u 12u$(small)">
+			<%= check_box_tag '', 1, @method == 'kp' || @method == 'all' ? true : false, name: 'method[kp]', id: 'kp-checkbox'%>
+			<%= label_tag 'kp-checkbox', 'Ken Pom'%>
+		</div>
+		<div class="3u 12u$(small)">
+			<%= check_box_tag '', 1, @method == 'bmat' || @method == 'all' ? true : false, name: 'method[bmat]', id: 'bmat-checkbox' %>
+			<%= label_tag 'bmat-checkbox', 'Bracket Matrix'%>
+		</div>
 	</div>
 	<%= submit_tag("generate") %>
 	<% end %>
 </section>
 <div class="bracketspacecontainer">
-	<div class= "bracketspace">
+	<div class="bracketspace">
 		<div class="jQBracket lr">
 			<div class="bracket" style="height: <%= 8 * 64 %>">
-				<%= @bracket_generator[:bracket] %>
-			</div><!-- end bracket -->
-		</div><!-- end jq bracket -->
-	</div><!-- end bracketspace -->
-</div><!-- end bracketspacecontainer-->
-
+				<%= bracket_generator[:bracket] %>
+			</div>
+			<!-- end bracket -->
+		</div>
+		<!-- end jq bracket -->
+	</div>
+	<!-- end bracketspace -->
+</div>
+<!-- end bracketspacecontainer-->
