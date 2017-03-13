@@ -40,10 +40,14 @@ tournaments.each do |e|
     # crawl the bracketmatrix site
     @crawler.bracketMatrixCrawler(year)
     @crawler.bmat_team_data.each do |key, row|
-      
+        aliases = {"virginia commonwealth" => "vcu"}
         name = row['name']
         clean_name = name[/[^\d]+/].rstrip.downcase
-
+        
+        if(aliases.key?(clean_name))
+          clean_name = aliases[clean_name]
+        end
+        
         bmat_team = BmatrixTeam.find_by name: clean_name
         if bmat_team.nil?
             bmat_team = BmatrixTeam.create(name: clean_name, conf: row['conf'])
@@ -75,8 +79,8 @@ end
 teams = ActiveSupport::JSON.decode(File.read('db/seed_files/team.json'))
 teams.each do |e|
     begin
-      kp = KenpomTeam.where(name: e['kp_name'].downcase.downcase.split('||')).take
-      bmat = BmatrixTeam.where(name: e['bmat_name'].downcase.split('||')).take
+      kp = KenpomTeam.find_by name: e['kp_name'].downcase
+      bmat = BmatrixTeam.find_by name: e['bmat_name'].downcase
       conf = Conference.find_by kp_name: kp.conf
       new_team = Team.create(name: e['name'].downcase, conference_id: conf.id, kenpom_team: kp, bmatrix_team: bmat)
   rescue => ex

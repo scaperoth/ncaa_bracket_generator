@@ -1627,7 +1627,7 @@
 	{
 	 	"name" : "VCU",
 	 	"kp_name" : "VCU",
-	 	"bmat_name" : "VCU||Virginia Commonwealth"
+	 	"bmat_name" : "VCU"
 	},
 	{
 	 	"name" : "Vermont",
