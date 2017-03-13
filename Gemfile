@@ -38,7 +38,7 @@ gem 'nokogiri'
 # gem 'capistrano-rails', group: :development
 
 #use puma for heroku
-#gem 'puma'
+gem 'puma'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
