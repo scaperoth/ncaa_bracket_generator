@@ -1,14 +1,13 @@
-[
-	{
-		"region": "south"
-	},
-	{
-		"region": "east"
-	},
-	{
-		"region": "west"
-	},
-	{
-		"region": "midwest"
-	}
+[	{
+        "region": "east"
+    },
+    {
+        "region": "west"
+    },
+    {
+        "region": "midwest"
+    },
+    {
+        "region": "south"
+    }
 ]
