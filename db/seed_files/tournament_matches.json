@@ -1139,13 +1139,13 @@
       "round_id":7,
       "region_id":3,
       "team_id":126,
-      "team1_score":null,
+      "team1_score":84,
       "team2_id":188,
-      "team2_score":null,
+      "team2_score":73,
       "weight":2,
-      "winner_id":null,
+      "winner_id":126,
       "created_at":"2017-03-16T12:15:42.518Z",
-      "updated_at":"2017-03-16T12:15:42.518Z"
+      "updated_at":"2017-03-17T11:59:45.369Z"
    },
    {  
       "id":13,
@@ -1153,13 +1153,13 @@
       "round_id":7,
       "region_id":3,
       "team_id":234,
-      "team1_score":null,
+      "team1_score":80,
       "team2_id":327,
-      "team2_score":null,
+      "team2_score":70,
       "weight":3,
-      "winner_id":null,
+      "winner_id":234,
       "created_at":"2017-03-16T12:15:42.510Z",
-      "updated_at":"2017-03-16T12:15:42.510Z"
+      "updated_at":"2017-03-17T12:00:00.462Z"
    },
    {  
       "id":12,
@@ -1251,13 +1251,13 @@
       "round_id":7,
       "region_id":4,
       "team_id":172,
-      "team1_score":null,
+      "team1_score":72,
       "team2_id":170,
-      "team2_score":null,
+      "team2_score":81,
       "weight":2,
-      "winner_id":null,
+      "winner_id":170,
       "created_at":"2017-03-16T12:15:42.463Z",
-      "updated_at":"2017-03-16T12:15:42.463Z"
+      "updated_at":"2017-03-17T12:00:40.079Z"
    },
    {  
       "id":5,
@@ -1265,13 +1265,13 @@
       "round_id":7,
       "region_id":4,
       "team_id":34,
-      "team1_score":null,
+      "team1_score":76,
       "team2_id":344,
-      "team2_score":null,
+      "team2_score":64,
       "weight":3,
-      "winner_id":null,
+      "winner_id":34,
       "created_at":"2017-03-16T12:15:42.457Z",
-      "updated_at":"2017-03-16T12:15:42.457Z"
+      "updated_at":"2017-03-17T12:00:58.634Z"
    },
    {  
       "id":4,
