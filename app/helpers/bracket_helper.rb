@@ -81,7 +81,7 @@ module BracketHelper
                     team2_accurate = team2 == generated_team2 ? true : false
                     winner_accurate = winner == generated_winner ? true : false
 
-                    if with_comparison
+                    if with_comparison and not winner.nil?
 
                         num_wrong_guesses += 1 unless winner_accurate
                         team_blocks = create_team_block(generated_team1, generated_team2, generated_winner, winner)
