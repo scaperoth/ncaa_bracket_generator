@@ -38,7 +38,7 @@ tournaments.each do |e|
     tournament = Tournament.create(name: e['name'], date: e['date'], year: e['year'])
 
     # crawl the bracketmatrix site
-    @crawler.bracketMatrixCrawler(year)
+    @crawler.bracketMatrixCrawler(year, tournament)
     @crawler.bmat_team_data.each do |key, row|
         aliases = {"virginia commonwealth" => "vcu"}
         name = row['name']
@@ -57,7 +57,7 @@ tournaments.each do |e|
     end
 
     # crawl the kenpom site
-    @crawler.kenPomCrawler(year)
+    @crawler.kenPomCrawler(year, tournament)
     @crawler.kp_team_data.each do |key, row|
         name = row['team']
         clean_name = row['team'][/[^\d]+/].rstrip.downcase

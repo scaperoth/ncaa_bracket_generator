@@ -1,177 +1,176 @@
 [
-	
-		{
-			"name": "Great West Conference",
-			"kp_name":"GWC",
-			"bmat_name":"Great West"
-		},
-	{
-		"name": "FBS Independents",
-		"kp_name":"ind",
-		"bmat_name":"FBS Independent"
-	},
-	{
-		"name": "America East Conference",
-		"kp_name":"AE",
-		"bmat_name":"America East"
-	},
-	{
-		"name": "American Athletic Conference",
-		"kp_name":"Amer",
-		"bmat_name":"American"
-	},
-	{
-		"name": "Atlantic 10 Conference",
-		"kp_name":"A10",
-		"bmat_name":"Atlantic 10"
-	},
-	{
-		"name": "Atlantic Coast Conference",
-		"kp_name":"ACC",
-		"bmat_name":"ACC"
-	},
-	{
-		"name": "Atlantic Sun Conference",
-		"kp_name":"ASun",
-		"bmat_name":"Atlantic Sun"
-	},
-	{
-		"name": "Big 12 Conference",
-		"kp_name":"B12",
-		"bmat_name":"Big 12"
-	},
+    {
+        "name": "Great West Conference",
+        "kp_name": "GWC",
+        "bmat_name": "Great West"
+    },
+    {
+        "name": "FBS Independents",
+        "kp_name": "ind",
+        "bmat_name": "FBS Independent"
+    },
+    {
+        "name": "America East Conference",
+        "kp_name": "AE",
+        "bmat_name": "America East"
+    },
+    {
+        "name": "American Athletic Conference",
+        "kp_name": "Amer",
+        "bmat_name": "American"
+    },
+    {
+        "name": "Atlantic 10 Conference",
+        "kp_name": "A10",
+        "bmat_name": "Atlantic 10"
+    },
+    {
+        "name": "Atlantic Coast Conference",
+        "kp_name": "ACC",
+        "bmat_name": "ACC"
+    },
+    {
+        "name": "Atlantic Sun Conference",
+        "kp_name": "ASun",
+        "bmat_name": "Atlantic Sun"
+    },
+    {
+        "name": "Big 12 Conference",
+        "kp_name": "B12",
+        "bmat_name": "Big 12"
+    },
 
-	{
-		"name": "Big East Conference",
-		"kp_name":"BE",
-		"bmat_name":"Big East"
-	},
+    {
+        "name": "Big East Conference",
+        "kp_name": "BE",
+        "bmat_name": "Big East"
+    },
 
-	{
-		"name": "Big Sky Conference",
-		"kp_name":"BSky",
-		"bmat_name":"Big Sky"
-	},
-	{
-		"name": "Big South Conference",
-		"kp_name":"BSth",
-		"bmat_name":"Big South"
-	},
-	{
-		"name": "Big Ten Conference",
-		"kp_name":"B10",
-		"bmat_name":"Big Ten"
-	},
-	{
-		"name": "Big West Conference",
-		"kp_name":"BW",
-		"bmat_name":"Big West"
-	},
+    {
+        "name": "Big Sky Conference",
+        "kp_name": "BSky",
+        "bmat_name": "Big Sky"
+    },
+    {
+        "name": "Big South Conference",
+        "kp_name": "BSth",
+        "bmat_name": "Big South"
+    },
+    {
+        "name": "Big Ten Conference",
+        "kp_name": "B10",
+        "bmat_name": "Big Ten"
+    },
+    {
+        "name": "Big West Conference",
+        "kp_name": "BW",
+        "bmat_name": "Big West"
+    },
 
-	{
-		"name": "Colonial Athletic Association",
-		"kp_name":"CAA",
-		"bmat_name":"Colonial"
-	},
-	{
-		"name": "Conference USA",
-		"kp_name":"CUSA",
-		"bmat_name":"CUSA"
-	},
+    {
+        "name": "Colonial Athletic Association",
+        "kp_name": "CAA",
+        "bmat_name": "Colonial"
+    },
+    {
+        "name": "Conference USA",
+        "kp_name": "CUSA",
+        "bmat_name": "CUSA"
+    },
 
-	{
-		"name": "Horizon League",
-		"kp_name":"Horz",
-		"bmat_name":"Horizon"
-	},
-	{
-		"name": "Ivy League",
-		"kp_name":"Ivy",
-		"bmat_name":"Ivy"
-	},
-	{
-		"name": "Metro Atlantic Athletic Conference",
-		"kp_name":"MAAC",
-		"bmat_name":"Metro Atlantic"
-	},
-	{
-		"name": "Mid-American Conference",
-		"kp_name":"MAC",
-		"bmat_name":"MAC"
-	},
-	{
-		"name": "Mid-Eastern Athletic Conference",
-		"kp_name":"MEAC",
-		"bmat_name":"Mid-Eastern"
-	},
-	{
-		"name": "Missouri Valley Conference",
-		"kp_name":"MVC",
-		"bmat_name":"Missouri Valley"
-	},
-	{
-		"name": "Mountain West Conference",
-		"kp_name":"MWC",
-		"bmat_name":"Mountain West"
-	},
-	{
-		"name": "Northeast Conference",
-		"kp_name":"NEC",
-		"bmat_name":"Northeast"
-	},
-	{
-		"name": "Ohio Valley Conference",
-		"kp_name":"OVC",
-		"bmat_name":"Ohio Valley"
-	},
-	{
-		"name": "Pac-12 Conference",
-		"kp_name":"P12",
-		"bmat_name":"Pacific-12"
-	},
-	{
-		"name": "Patriot League",
-		"kp_name":"Pat",
-		"bmat_name":"Patriot"
-	},
-	{
-		"name": "Southeastern Conference",
-		"kp_name":"SEC",
-		"bmat_name":"SEC"
-	},
-	{
-		"name": "Southern Conference",
-		"kp_name":"SC",
-		"bmat_name":"Southern"
-	},
-	{
-		"name": "Southland Conference",
-		"kp_name":"Slnd",
-		"bmat_name":"Southland"
-	},
-	{
-		"name": "Southwestern Athletic Conference",
-		"kp_name":"SWAC",
-		"bmat_name":"SWAC"
-	},
-	{
-		"name": "Sun Belt Conference",
-		"kp_name":"SB",
-		"bmat_name":"Sun Belt"
-	},
-	{
-		"name": "Summit League",
-		"kp_name":"Sum",
-		"bmat_name":"Summit"
-	},
-	{
-		"name": "West Coast Conference",
-		"kp_name":"WCC",
-		"bmat_name":"WAC"
-	},
-	{
-		"name": "Western Athletic Conference",
-		"kp_name":"WAC",
-		"bmat_name":"West Coast"
-	}
+    {
+        "name": "Horizon League",
+        "kp_name": "Horz",
+        "bmat_name": "Horizon"
+    },
+    {
+        "name": "Ivy League",
+        "kp_name": "Ivy",
+        "bmat_name": "Ivy"
+    },
+    {
+        "name": "Metro Atlantic Athletic Conference",
+        "kp_name": "MAAC",
+        "bmat_name": "Metro Atlantic"
+    },
+    {
+        "name": "Mid-American Conference",
+        "kp_name": "MAC",
+        "bmat_name": "MAC"
+    },
+    {
+        "name": "Mid-Eastern Athletic Conference",
+        "kp_name": "MEAC",
+        "bmat_name": "Mid-Eastern"
+    },
+    {
+        "name": "Missouri Valley Conference",
+        "kp_name": "MVC",
+        "bmat_name": "Missouri Valley"
+    },
+    {
+        "name": "Mountain West Conference",
+        "kp_name": "MWC",
+        "bmat_name": "Mountain West"
+    },
+    {
+        "name": "Northeast Conference",
+        "kp_name": "NEC",
+        "bmat_name": "Northeast"
+    },
+    {
+        "name": "Ohio Valley Conference",
+        "kp_name": "OVC",
+        "bmat_name": "Ohio Valley"
+    },
+    {
+        "name": "Pac-12 Conference",
+        "kp_name": "P12",
+        "bmat_name": "Pacific-12"
+    },
+    {
+        "name": "Patriot League",
+        "kp_name": "Pat",
+        "bmat_name": "Patriot"
+    },
+    {
+        "name": "Southeastern Conference",
+        "kp_name": "SEC",
+        "bmat_name": "SEC"
+    },
+    {
+        "name": "Southern Conference",
+        "kp_name": "SC",
+        "bmat_name": "Southern"
+    },
+    {
+        "name": "Southland Conference",
+        "kp_name": "Slnd",
+        "bmat_name": "Southland"
+    },
+    {
+        "name": "Southwestern Athletic Conference",
+        "kp_name": "SWAC",
+        "bmat_name": "SWAC"
+    },
+    {
+        "name": "Sun Belt Conference",
+        "kp_name": "SB",
+        "bmat_name": "Sun Belt"
+    },
+    {
+        "name": "Summit League",
+        "kp_name": "Sum",
+        "bmat_name": "Summit"
+    },
+    {
+        "name": "West Coast Conference",
+        "kp_name": "WCC",
+        "bmat_name": "WAC"
+    },
+    {
+        "name": "Western Athletic Conference",
+        "kp_name": "WAC",
+        "bmat_name": "West Coast"
+    }
 ]
