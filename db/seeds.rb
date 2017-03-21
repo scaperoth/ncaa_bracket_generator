@@ -98,5 +98,6 @@ bracket_games = ActiveSupport::JSON.decode(File.read('db/seed_files/tournament_m
 bracket_games.each do |game|
     BracketGame.create(tournament_id: game['tournament_id'], round_id: game['round_id'],
                        region_id: game['region_id'], team_id: game['team_id'], team2_id: game['team2_id'],
+                       team1_score: game['team1_score'], team2_score: game['team2_score'],
                        weight: game['weight'], winner_id: game['winner_id'])
 end
