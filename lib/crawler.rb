@@ -57,7 +57,7 @@ class Crawler
         save_doc doc, year, 'bmat'
 
         # grab the date that is the closest to the tournament start date
-        # closest_date_file = get_closest_tournament_date tournament, "#{Rails.root}/docs/archive/#{year}/bmat"
+        # closest_date_file = get_closest_tournament_date tournament, "#{Rails.root}/public/archive/#{year}/bmat"
         # doc = Nokogiri::HTML(File.open(closest_date_file))
 
         # num_columns = (num_columns/num_rows) + 1
@@ -119,7 +119,7 @@ class Crawler
         save_doc doc, year, 'kp'
 
         # grab the date that is the closest to the tournament start date
-        closest_date_file = get_closest_tournament_date tournament, "#{Rails.root}/docs/archive/#{year}/kp"
+        closest_date_file = get_closest_tournament_date tournament, "#{Rails.root}/public/archive/#{year}/kp"
         doc = Nokogiri::HTML(File.open(closest_date_file))
 
         # get the columns and column names first
@@ -159,7 +159,7 @@ class Crawler
     end
 
     def save_doc(doc, year, name)
-        filename = File.join(Rails.root, 'docs', 'archive', year, name, Time.now.strftime('%Y%m%d'))
+        filename = File.join(Rails.root, 'public', 'archive', year, name, Time.now.strftime('%Y%m%d'))
         dir = File.dirname(filename)
         FileUtils.mkdir_p(dir) unless File.directory?(dir)
         File.open(filename, 'w+') do |f|
