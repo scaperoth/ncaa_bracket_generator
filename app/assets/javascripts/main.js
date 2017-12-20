@@ -14,7 +14,7 @@
 		$(".logo img").attr("src", "/assets/logo.png");
 		$(".logo img").attr("style", "width=2em; height=2em;");
 	}
-	
+
 	skel.breakpoints({
 		xlarge : '(max-width: 1680px)',
 		large : '(max-width: 1280px)',
@@ -84,7 +84,7 @@
 		});
 
 		// Fix: Placeholder polyfill.
-		$form.placeholder();
+		// $form.placeholder();
 
 		// Prioritize "important" elements on medium.
 		skel.on('+medium -medium', function() {
@@ -179,4 +179,4 @@
 
 	});
 
-})(jQuery); 
+})(jQuery);
